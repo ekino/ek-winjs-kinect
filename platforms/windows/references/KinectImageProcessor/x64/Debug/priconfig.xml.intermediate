@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <index root="\" startIndexAt="x64\Debug\layout.resfiles">
+    <default>
+      <qualifier name="Language" value="en-US" />
+    </default>
+    <indexer-config type="RESFILES" qualifierDelimiter="." />
+  </index>
+  <index root="\" startIndexAt="x64\Debug\resources.resfiles">
+    <default>
+      <qualifier name="Language" value="en-US" />
+    </default>
+    <indexer-config type="RESW" convertDotsToSlashes="true" initialPath="KinectImageProcessor" />
+    <indexer-config type="RESJSON" initialPath="KinectImageProcessor" />
+    <indexer-config type="RESFILES" qualifierDelimiter="." />
+  </index>
+  <index root="\" startIndexAt="x64\Debug\pri.resfiles">
+    <default>
+      <qualifier name="Language" value="en-US" />
+    </default>
+    <indexer-config type="PRI" />
+    <indexer-config type="RESFILES" qualifierDelimiter="." />
+  </index>
+</resources>
