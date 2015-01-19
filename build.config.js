@@ -7,6 +7,7 @@ module.exports = {
     www_dir: 'www',
     src_dir :'src',
     libs_dir :'libs',
+    bower_dir :'bower_components',
 
     app : {
         js : ['js/**/*.js'],
