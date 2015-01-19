@@ -1,0 +1,1 @@
+e:\work\kinect\ek-winjs-kinect\platforms\windows\CordovaApp.Windows80.jsproj;x64
