@@ -48,10 +48,10 @@
             watch: {
                 scripts: {
                     files: [
-                        's<%= src_dir %>rc/js/**/*.js',
-                        '<%= src_dir %>/css/**/*.css'
+                        '<%= src_dir %>/js/**/*.js',
+                        '<%= src_dir %>/css/**/*.scss'
                     ],
-                    tasks: ['jshint']
+                    tasks: ['jshint', 'build']
                 }
             },
             /**
@@ -136,8 +136,9 @@
                 dev: {
                     path: 'http://localhost:<%= express.options.port %>/'
                 }
-            },
-        }
+            }
+        };
+
         grunt.initConfig(grunt.util._.extend(taskConfig, userConfig));
 
         /**
