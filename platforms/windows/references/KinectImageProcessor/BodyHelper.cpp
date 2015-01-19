@@ -21,13 +21,13 @@ BodyHelper::BodyHelper()
 
 bool BodyHelper::processJointLocations(
             _In_ Windows::Foundation::Collections::IMapView<WindowsPreview::Kinect::JointType, WindowsPreview::Kinect::Joint>^ jointsCollection,
-            _Out_ Platform::WriteOnlyArray<jointPoint>^ jointPoints)
+			_Out_ Platform::WriteOnlyArray<WindowsPreview::Kinect::Joint>^ jointPoints)
+
 {
     if (jointsCollection == nullptr || jointPoints == nullptr)
     {
         return false;
     }
-
     ZeroMemory(jointPoints->Data, jointPoints->Length * sizeof(jointPoint));
 
     // get active kinect sensor
@@ -44,12 +44,13 @@ bool BodyHelper::processJointLocations(
         {
             position.Z = 0.1f;
         }       
-
         // map each joint location to depth space
         DepthSpacePoint DepthSpacePoint = coordinateMapper->MapCameraPointToDepthSpace(position);
-        jointPoints->Data[jointIndex].jointType = (JointType)(jointIndex);
-        jointPoints->Data[jointIndex].x = DepthSpacePoint.X;
-        jointPoints->Data[jointIndex].y = DepthSpacePoint.Y;
+		jointPoints->Data[jointIndex].JointType = (JointType)(jointIndex);
+		jointPoints->Data[jointIndex].Position.X = DepthSpacePoint.X;
+		jointPoints->Data[jointIndex].Position.Y = DepthSpacePoint.Y;
+		jointPoints->Data[jointIndex].Position.Z = position.Z;
+
     }
 
     return true;

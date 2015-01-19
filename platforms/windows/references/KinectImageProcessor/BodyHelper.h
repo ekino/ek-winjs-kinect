@@ -21,7 +21,7 @@ namespace KinectImageProcessor
     public:
         static bool processJointLocations(
             _In_ Windows::Foundation::Collections::IMapView<WindowsPreview::Kinect::JointType, WindowsPreview::Kinect::Joint>^ jointsCollection,
-            _Out_ Platform::WriteOnlyArray<jointPoint>^ jointPoints);
+			_Out_ Platform::WriteOnlyArray<WindowsPreview::Kinect::Joint>^ jointPoints);
 
     private:
         BodyHelper();
