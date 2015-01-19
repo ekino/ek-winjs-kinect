@@ -78,6 +78,12 @@
                             src: [ '<%= app.js %>' ],
                             dest: '<%= build_dir %>/'
                         },
+                        {
+                            expand: true,
+                            cwd: '',
+                            src: [ '<%= libs_dir %>/**' ],
+                            dest: '<%= build_dir %>/'
+                        },
                     ]
                 },
                 www:{

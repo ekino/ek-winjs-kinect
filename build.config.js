@@ -6,6 +6,7 @@ module.exports = {
     build_dir: 'build',
     www_dir: 'www',
     src_dir :'src',
+    libs_dir :'libs',
 
     app : {
         js : ['js/**/*.js'],
