@@ -11,19 +11,9 @@
         var userConfig = require('./build.config.js');
 
         var taskConfig = {
-            jshint: {
-                gruntfile: ['Gruntfile.js'],
-                files: ['<%= src_dir %>/**/*.js'],
-                options: {
-                    // options here to override JSHint defaults
-                    globals: {
-                        console: true,
-                        module: true
-                    }
-                }
-            },
             watchfiles: {
                 all: [
+                    '<%= libs_dir %>/{,*/}*.js',
                     '<%= src_dir %>/{,*/}*.html',
                     '<%= src_dir %>/js/{,*/,*/}*.js',
                     '<%= src_dir %>/css/{,*/}*.css',
@@ -51,7 +41,7 @@
                         '<%= src_dir %>/js/**/*.js',
                         '<%= src_dir %>/css/**/*.scss'
                     ],
-                    tasks: ['jshint', 'build']
+                    tasks: ['build']
                 }
             },
             /**
