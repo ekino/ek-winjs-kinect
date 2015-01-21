@@ -185,7 +185,6 @@
             },
             Pointer:{
                 MOVE:"EkWinjs.Kinect.Events.Pointer.MOVE",
-                CLICK:"EkWinjs.Kinect.Events.Pointer.CLICK",
                 OVER:"EkWinjs.Kinect.Events.Pointer.OVER",
                 OUT:"EkWinjs.Kinect.Events.Pointer.OUT",
                 DOWN:"EkWinjs.Kinect.Events.Pointer.DOWN",

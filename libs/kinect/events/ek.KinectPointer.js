@@ -32,33 +32,38 @@
         *********************/
         addEventListener: function (type, listener, target,settings) {
 
+            var id = "";
+
+            if(target.id && target.id!=""){
+                id = target.id;
+            }else if(target.className){
+                id = target.className;
+            }
+         
             switch (type) {
                 case EkWinjs.Kinect.Events.Pointer.MOVE:
-                    this._funcsMove[target] = listener;
-                    break;
-                case EkWinjs.Kinect.Events.Pointer.CLICK:
-                    this._funcsClick[target] = listener;
+                    this._funcsMove[id] = listener;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.OVER:  
-                    this._funcsOver[target] = listener;
+                    this._funcsOver[id] = listener;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.OUT:
-                    this._funcsOut[target] = listener;
+                    this._funcsOut[id] = listener;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.UP:
-                    this._funcsUp[target] = listener;
+                    this._funcsUp[id] = listener;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.DOWN:
-                    this._funcsDown[target] = listener;
+                    this._funcsDown[id] = listener;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.HOLD_START:
-                    this._funcsHoldStart[target] = listener;
+                    this._funcsHoldStart[id] = listener;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.HOLD_PROGRESS:
-                    this._funcsHoldProgress[target] = listener;
+                    this._funcsHoldProgress[id] = listener;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.HOLD_END:
-                    this._funcsHoldEnd[target] = listener;
+                    this._funcsHoldEnd[id] = listener;
                     break;
             }
 
@@ -69,44 +74,50 @@
             }
                 
 
-            this._targets[target] = { target: target, isOver:false, isHold:false, forceHandClosed:forceHandClosed, holdComplete:false };
-            
+            this._targets[id] = { target: target, isOver:false, isHold:false, forceHandClosed:forceHandClosed, holdComplete:false };
+          
+        
         },  
 
 
         removeEventListener : function (type, listener, target) {
-   
+        
+           var id = "";
+           if(target.id && target.id !=""){
+                id = target.id;
+            }else if(target.className){
+                id = target.className;
+            }
+         
+
             switch (type) {
                 case EkWinjs.Kinect.Events.Pointer.MOVE:
-                    this._funcsMove[target] = null;
-                    break;
-                case EkWinjs.Kinect.Events.Pointer.CLICK:
-                    this._funcsHoldStart[target] = null;
+                    this._funcsMove[id] = null;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.OVER:
-                    this._funcsOver[target] = null;
+                    this._funcsOver[id] = null;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.OUT:
-                    this._funcsOut[target] = null;
+                    this._funcsOut[id] = null;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.UP:
-                    this._funcsUp[target] = null;
+                    this._funcsUp[id] = null;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.DOWN:
-                    this._funcsDown[target] = null;
+                    this._funcsDown[id] = null;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.HOLD_START:
-                    this._funcsHoldStart[target] = null;
+                    this._funcsHoldStart[id] = null;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.HOLD_PROGRESS:
-                    this._funcsHoldProgress[target] = null;
+                    this._funcsHoldProgress[id] = null;
                     break;
                 case EkWinjs.Kinect.Events.Pointer.HOLD_END:
-                    this._funcsHoldEnd[target] = null;
+                    this._funcsHoldEnd[id] = null;
                     break;
             }
-            if (this._targets[target]) {
-                this._targets[target] = null;
+            if (this._targets[id]) {
+                this._targets[id] = null;
             }
         },
 
@@ -206,13 +217,6 @@
                 _this._renderUpCallbacks();
             });
 
-            document.addEventListener("click", function(event){   
-       
-
-                updateMousePosition(event);
-                _this._renderClickCallbacks();
-            });
-
 
             document.addEventListener("mousemove", function(event){   
                 updateMousePosition(event);
@@ -259,7 +263,6 @@
 
         _funcsMove : {},
         _funcsOver : {},
-        _funcsClick : {},
         _funcsOut : {},
         _funcsUp : {},
         _funcsDown : {},
@@ -341,7 +344,7 @@
                                     this._targets[p].isHold = true;
 
                                     if (this._funcsHoldStart[p]) {
-                                        this._funcsHoldStart[p](COUNT_HOLD / TIME_HOLD);
+                                        this._funcsHoldStart[p](this._targets[p].target,COUNT_HOLD / TIME_HOLD);
                                     }
 
                                 }
@@ -356,25 +359,29 @@
 
 
                                     if (this._funcsHoldEnd[p]) {
-                                        this._funcsHoldEnd[p](1);
+                                        this._funcsHoldEnd[p](this._targets[p].target,1);
                                     }
 
                                 } else {
                                     COUNT_HOLD++;
 
                                     if (this._funcsHoldProgress[p]) {
-                                        this._funcsHoldProgress[p](COUNT_HOLD / TIME_HOLD);
+                                        this._funcsHoldProgress[p](this._targets[p].target,COUNT_HOLD / TIME_HOLD);
                                     }
                                 }
                             }
                         }
 
                     }else {
+                        
+                        if (this._targets[p] &&  this._targets[p].isHold){
 
-                        COUNT_DELAY_HOLD = 0;
-                        COUNT_HOLD = 0;
-                        this._targets[p].holdComplete = false;
-                        this._targets[p].isHold = false;
+                            COUNT_DELAY_HOLD = 0;
+                            COUNT_HOLD = 0;
+
+                            this._targets[p].holdComplete = false;
+                            this._targets[p].isHold = false;
+                        }
                     }
                 }
             }
@@ -420,9 +427,6 @@
             }
         },
         
-        _renderClickCallbacks : function() {
-            this._callListenersOnTarget(this._funcsClick);
-        },
 
         _renderMoveCallbacks : function() {
             this._callListenersOnTarget(this._funcsMove);
@@ -439,10 +443,12 @@
         _callListenersOnTarget : function(arrayListeners) {
             for (var p in arrayListeners) {
                 if (arrayListeners[p] != null) {
+                    debugger;    
                     // check if over target
-                    if (!this._targets[p] || (this._targets[p] && this._checkIfIsOver(this._targets[p].target))) {
+                    if (this._targets[p] && (!this._targets[p].target || (this._targets[p].target && this._checkIfIsOver(this._targets[p].target)))) {
+
                         //call listener
-                        arrayListeners[p]();
+                        arrayListeners[p](this._targets[p].target);
                     }
 
                 }
