@@ -3,6 +3,7 @@
     <preference name="windows-target-version" value="8.0" />
     <preference name="windows-phone-target-version" value="8.1" />
     <name>winjs-kinect</name>
+    <preference name="windows-target-version" value="8.1" />
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
