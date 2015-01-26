@@ -50,17 +50,27 @@ table {
 //////////////////////////////////////
 //////////////////////////////////////
 
+body {
+  background: black;
+}
+
 #board {
   //text-align: center;
   width: 600px;
   font-size: 0px;
 
   span {
-    display: inline-block;
     width: 199px;
     height: 198px;
-    background: black;
+    background: white;
+    position: relative;
+    display: inline-block;
     margin: 1px 0 1px 1px;
+
+    -webkit-transition: all 100ms ease;
+    -moz-transition: all 100ms ease;
+    -o-transition: all 100ms ease;
+    transition: all 100ms ease;
 
     .square {
       border-radius: 0%;
@@ -69,5 +79,26 @@ table {
     .circle {
       border-radius: 50%;
     }
+
+    p {
+      top: 50%;
+      left: 50%;
+      background: red;
+      position: absolute;
+      border-radius: 50%;
+    }
+  }
+}
+
+.loader {
+  //display: none;
+
+  -webkit-transition: all 100ms ease;
+  -moz-transition: all 100ms ease;
+  -o-transition: all 100ms ease;
+  transition: all 100ms ease;
+
+  .loader--inpt {
+    display: none;
   }
 }

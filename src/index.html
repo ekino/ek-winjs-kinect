@@ -13,22 +13,28 @@
     </head>
     <body>
         <div class="app">
+          <span class="loader">
+            <input type="text" class="loader--inpt" readOnly="true">
+          </span>
           <div id="board">
-            <span class="element e1 square">
-            </span><span class="element e2 square">
-            </span><span class="element e3 square">
-            </span><span class="element e4 square">
-            </span><span class="element e5 square">
-            </span><span class="element e6 square">
-            </span><span class="element e7 square">
-            </span><span class="element e8 square">
-            </span><span class="element e9 square"></span>
+            <span class="element e1 square"><p></p>
+            </span><span class="element e2 square"><p></p>
+            </span><span class="element e3 square"><p></p>
+            </span><span class="element e4 square"><p></p>
+            </span><span class="element e5 square"><p></p>
+            </span><span class="element e6 square"><p></p>
+            </span><span class="element e7 square"><p></p>
+            </span><span class="element e8 square"><p></p>
+            </span><span class="element e9 square"><p></p></span>
           </div>
         </div>
 
-        <script src="/bower_components/winjs/js/WinJS.js"></script>       
+        <script src="bower_components/winjs/js/WinJS.js"></script>       
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="libs/knob/jquery.knob.js"></script>
         
-        <script type="text/javascript" src="libs/kinect/body/ek.KinectBodyData.js"></script>      
+        <script type="text/javascript" src="libs/kinect/body/ek.KinectBodyData.js"></script>
         <script type="text/javascript" src="libs/kinect/body/ek.KinectBodyFrame.js"></script>
         <script type="text/javascript" src="libs/kinect/ek.KinectDebug.js"></script>
         <script type="text/javascript" src="libs/kinect/ek.kinect.js"></script>
