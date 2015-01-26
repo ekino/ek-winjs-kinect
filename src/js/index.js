@@ -1,6 +1,14 @@
 var kinect = EkWinjs.Kinect.getInstance();
 
-var body = kinect.bodyFrame.trackBodyOn(0.5, 0.2, 1.5, 0.1);
+
+
+var body = kinect.bodyFrame.trackBodyOn(0.5, 0.2, 1.5, 0.2);
+
+
+kinect.addCanvasDebug("mainCanvas");
+
+kinect.addCanvasDebug("resultCanvas", true);
+
 
 var tiles = document.getElementsByClassName("element");
 
@@ -10,11 +18,12 @@ for (var i = tiles.length - 1; i >= 0; i--) {
   body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.HOLD_START, functionHoldStart,tiles[i],{handClosed:true});
   body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.HOLD_PROGRESS, functionHoldProgress,tiles[i],{handClosed:true});
   body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.HOLD_END, functionHoldEnd,tiles[i],{handClosed:true});
-  //body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.MOVE, functionMoveHandler,tiles[i]);
 };
 
+body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.MOVE, functionMoveHandler, document.body);
+
 function functionMoveHandler(target) {
-  //...
+    console.log(body.pointer.x);
 };
 
 function functionHoldStart(target) {
