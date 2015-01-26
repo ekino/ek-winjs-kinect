@@ -38,7 +38,6 @@
              _this._selectedBody.trackArea.z = z;
              _this._selectedBody.trackArea.dephX = dephX;
              _this._selectedBody.trackArea.dephZ = dephZ;
-             _this._selectedBody.trackArea.z = dephZ;
 
              if(_needSimulation)
              {

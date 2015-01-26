@@ -400,10 +400,7 @@
                         // check if over target
                         if (!this._targets[p].isOver && check) {
                             this._targets[p].isOver = true;
-                            this._funcsOver[p]();
-                        }
-                        else if (this._targets[p].isOver && !check) { // check if out target
-                            this._targets[p].isOver = false;
+                            this._funcsOver[p](this._targets[p].target);
                         }
                     }
                 }
@@ -411,16 +408,13 @@
 
             for (var p in this._funcsOut) {
                 if (this._funcsOut[p] != null) {
-
                     if (this._targets[p]) {
                         check = this._checkIfIsOver(this._targets[p].target);
-                        // check if over target
-                        if (!this._targets[p].isOver && check) {
-                            this._targets[p].isOver = true;
-                            // check if out target
-                        }else if (this._targets[p].isOver && !check) { // check if out target
+
+
+                         if (this._targets[p].isOver && !check) { // check if out target
                             this._targets[p].isOver = false;
-                            this._funcsOut[p]();
+                            this._funcsOut[p](this._targets[p].target);
                         }
                     }
                 }
@@ -443,7 +437,7 @@
         _callListenersOnTarget : function(arrayListeners) {
             for (var p in arrayListeners) {
                 if (arrayListeners[p] != null) {
-                    debugger;    
+                   
                     // check if over target
                     if (this._targets[p] && (!this._targets[p].target || (this._targets[p].target && this._checkIfIsOver(this._targets[p].target)))) {
 
