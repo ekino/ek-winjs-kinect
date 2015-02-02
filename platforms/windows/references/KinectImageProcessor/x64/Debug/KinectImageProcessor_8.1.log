@@ -1,0 +1,25 @@
+﻿Build started 26-Jan-15 3:44:44 PM.
+     1>Project "C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\references\KinectImageProcessor\KinectImageProcessor_8.1.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\\inc" /I"C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\references\KinectImageProcessor\\" /I"Generated Files\\" /Ix64\Debug\ /Zi /ZW /ZW:nostdlib /nologo /W3 /WX- /sdl /MP /Od /D _WINRT_DLL /D _WINDLL /D _UNICODE /D UNICODE /D _DEBUG /D WINAPI_FAMILY=WINAPI_FAMILY_APP /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"pch.h" /Fp"x64\Debug\pch.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /FU"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\References\CommonConfiguration\neutral\platform.winmd" /FU"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\WindowsPreview.Kinect\2.0\References\CommonConfiguration\neutral\WindowsPreview.Data.winmd" /FU"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\WindowsPreview.Kinect\2.0\References\CommonConfiguration\neutral\WindowsPreview.Kinect.winmd" /FU"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral\Windows.winmd" /FU"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral\Windows.winmd" /errorReport:prompt /bigobj pch.cpp
+         pch.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\\inc" /I"C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\references\KinectImageProcessor\\" /I"Generated Files\\" /Ix64\Debug\ /Zi /ZW /ZW:nostdlib /nologo /W3 /WX- /sdl /MP /Od /D _WINRT_DLL /D _WINDLL /D _UNICODE /D UNICODE /D _DEBUG /D WINAPI_FAMILY=WINAPI_FAMILY_APP /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"pch.h" /Fp"x64\Debug\pch.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /FU"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\References\CommonConfiguration\neutral\platform.winmd" /FU"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\WindowsPreview.Kinect\2.0\References\CommonConfiguration\neutral\WindowsPreview.Data.winmd" /FU"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\WindowsPreview.Kinect\2.0\References\CommonConfiguration\neutral\WindowsPreview.Kinect.winmd" /FU"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral\Windows.winmd" /FU"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral\Windows.winmd" /errorReport:prompt /bigobj BodyHelper.cpp CoordinateMapperHelper.cpp DepthHelper.cpp InfraredHelper.cpp
+         BodyHelper.cpp
+         CoordinateMapperHelper.cpp
+         DepthHelper.cpp
+         InfraredHelper.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\x64\Debug\KinectImageProcessor_8.1\KinectImageProcessor.dll" /INCREMENTAL /NOLOGO runtimeobject.lib "C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\\lib\x64\Kinect20.lib" kernel32.lib /MANIFEST:NO /DEBUG /PDB:"C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\x64\Debug\KinectImageProcessor_8.1\KinectImageProcessor.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /APPCONTAINER /WINMD /WINMDFILE:"C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\x64\Debug\KinectImageProcessor_8.1\KinectImageProcessor.winmd" /DYNAMICBASE /NXCOMPAT /MACHINE:X64 /DLL x64\Debug\BodyHelper.obj
+         x64\Debug\CoordinateMapperHelper.obj
+         x64\Debug\DepthHelper.obj
+         x64\Debug\InfraredHelper.obj
+         x64\Debug\pch.obj
+            Creating library C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\x64\Debug\KinectImageProcessor_8.1\KinectImageProcessor.lib and object C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\x64\Debug\KinectImageProcessor_8.1\KinectImageProcessor.exp
+         KinectImageProcessor_8.1.vcxproj -> C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\x64\Debug\KinectImageProcessor_8.1\KinectImageProcessor.dll
+       _GenerateProjectPriFileCore:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x64\MakePri.exe New -ProjectRoot C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\references\KinectImageProcessor\ -ConfigXml x64\Debug\priconfig.xml -OutputFile C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\x64\Debug\KinectImageProcessor_8.1\KinectImageProcessor.pri -IndexName KinectImageProcessor -Verbose -Overwrite  
+     1>Done Building Project "C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\references\KinectImageProcessor\KinectImageProcessor_8.1.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.66

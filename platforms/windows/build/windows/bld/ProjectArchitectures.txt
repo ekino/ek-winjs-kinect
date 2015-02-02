@@ -1,0 +1,2 @@
+C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\CordovaApp.Windows.jsproj;x64
+C:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\references\KinectImageProcessor\KinectImageProcessor_8.1.vcxproj;x64

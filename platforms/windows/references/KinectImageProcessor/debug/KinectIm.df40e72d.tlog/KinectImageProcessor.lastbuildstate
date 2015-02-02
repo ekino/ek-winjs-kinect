@@ -1,0 +1,2 @@
+#TargetFrameworkVersion=:PlatformToolSet=v120:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit
+debug|Win32|c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\references\KinectImageProcessor\|

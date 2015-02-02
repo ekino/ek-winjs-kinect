@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>MVX</Machine>
+    <WindowsUser>MVX</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <SolutionConfiguration>release|x64</SolutionConfiguration>
+    <PackageArchitecture>x64</PackageArchitecture>
+    <PackageIdentityName>com.ekino.kinect</PackageIdentityName>
+    <IntermediateOutputPath>c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\build\windows\bld\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\build\windows\release\x64\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\references\KinectImageProcessor\x64\release\KinectImageProcessor_8.1\KinectImageProcessor.winmd">
+      <PackagePath>KinectImageProcessor.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\references\KinectImageProcessor\x64\release\KinectImageProcessor_8.1\KinectImageProcessor.dll">
+      <PackagePath>KinectImageProcessor.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\images\SplashScreen.scale-100.png">
+      <PackagePath>images\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\images\Square150x150Logo.scale-100.png">
+      <PackagePath>images\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\images\Square30x30Logo.scale-100.png">
+      <PackagePath>images\Square30x30Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\images\Square310x310Logo.scale-100.png">
+      <PackagePath>images\Square310x310Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\images\Square70x70Logo.scale-100.png">
+      <PackagePath>images\Square70x70Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\images\StoreLogo.scale-100.png">
+      <PackagePath>images\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\images\Wide310x150Logo.scale-100.png">
+      <PackagePath>images\Wide310x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\img\logo.png">
+      <PackagePath>www\img\logo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\bower.json">
+      <PackagePath>www\bower_components\winjs\bower.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\css\ui-dark.css">
+      <PackagePath>www\bower_components\winjs\css\ui-dark.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\css\ui-light.css">
+      <PackagePath>www\bower_components\winjs\css\ui-light.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\css\index.css">
+      <PackagePath>www\css\index.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\fonts\Symbols.ttf">
+      <PackagePath>www\bower_components\winjs\fonts\Symbols.ttf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\js\base.js">
+      <PackagePath>www\bower_components\winjs\js\base.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\js\base.min.js">
+      <PackagePath>www\bower_components\winjs\js\base.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\js\en-US\ui.strings.js">
+      <PackagePath>www\bower_components\winjs\js\en-US\ui.strings.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\js\ui.js">
+      <PackagePath>www\bower_components\winjs\js\ui.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\js\ui.min.js">
+      <PackagePath>www\bower_components\winjs\js\ui.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\js\WinJS.js">
+      <PackagePath>www\bower_components\winjs\js\WinJS.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\js\WinJS.min.js">
+      <PackagePath>www\bower_components\winjs\js\WinJS.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\cordova.js">
+      <PackagePath>www\cordova.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\cordova_plugins.js">
+      <PackagePath>www\cordova_plugins.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\js\index.js">
+      <PackagePath>www\js\index.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\libs\cordova.js">
+      <PackagePath>www\libs\cordova.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\libs\jquery\jquery-2.1.3.min.js">
+      <PackagePath>www\libs\jquery\jquery-2.1.3.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\libs\kinect\body\ek.KinectBodyData.js">
+      <PackagePath>www\libs\kinect\body\ek.KinectBodyData.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\libs\kinect\body\ek.KinectBodyFrame.js">
+      <PackagePath>www\libs\kinect\body\ek.KinectBodyFrame.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\libs\kinect\ek.kinect.js">
+      <PackagePath>www\libs\kinect\ek.kinect.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\libs\kinect\ek.KinectDebug.js">
+      <PackagePath>www\libs\kinect\ek.KinectDebug.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\libs\kinect\events\ek.KinectPointer.js">
+      <PackagePath>www\libs\kinect\events\ek.KinectPointer.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\libs\knob\jquery.knob.js">
+      <PackagePath>www\libs\knob\jquery.knob.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\libs\winstore\winstore-jscompat.js">
+      <PackagePath>www\libs\winstore\winstore-jscompat.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\js\base.min.js.map">
+      <PackagePath>www\bower_components\winjs\js\base.min.js.map</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\js\ui.min.js.map">
+      <PackagePath>www\bower_components\winjs\js\ui.min.js.map</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\js\WinJS.min.js.map">
+      <PackagePath>www\bower_components\winjs\js\WinJS.min.js.map</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\css\index.css.map">
+      <PackagePath>www\css\index.css.map</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\License.txt">
+      <PackagePath>www\bower_components\winjs\License.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\bower_components\winjs\README.md">
+      <PackagePath>www\bower_components\winjs\README.md</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\config.xml">
+      <PackagePath>www\config.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\config.xml">
+      <PackagePath>config.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\img\Thumbs.db">
+      <PackagePath>www\img\Thumbs.db</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\index.html">
+      <PackagePath>www\index.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\www\spec.html">
+      <PackagePath>www\spec.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\Users\maxime\Desktop\ek-winjs-kinect\platforms\windows\build\windows\release\x64\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\">
+      <Name>Microsoft.VCLibs.120.00</Name>
+      <Version>12.0.21005.1</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.120.00, MinVersion = 12.0.21005.1</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\.\AppX\Retail\ARM\Microsoft.VCLibs.ARM.12.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\">
+      <Name>Microsoft.VCLibs.120.00</Name>
+      <Version>12.0.21005.1</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.120.00, MinVersion = 12.0.21005.1</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\.\AppX\Retail\x64\Microsoft.VCLibs.x64.12.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\">
+      <Name>Microsoft.VCLibs.120.00</Name>
+      <Version>12.0.21005.1</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.120.00, MinVersion = 12.0.21005.1</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\.\AppX\Retail\x86\Microsoft.VCLibs.x86.12.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.WinJS.2.0\1.0\">
+      <Name>Microsoft.WinJS.2.0</Name>
+      <Version>1.0.9600.17018</Version>
+      <Architecture>Neutral</Architecture>
+      <FrameworkIdentity>Name=Microsoft.WinJS.2.0, MinVersion=1.0.9600.17018</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.WinJS.2.0\1.0\Microsoft.WinJS.2.0.appx</AppxLocation>
+      <MoreInfo>http://go.microsoft.com/fwlink/%3fLinkId=260891</MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\WindowsPreview.Kinect\2.0\">
+      <Name>Microsoft.WindowsPreview.Kinect.8.1</Name>
+      <Version>2.0.1410.19000</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.WindowsPreview.Kinect.8.1, MinVersion = 2.0.1410.19000</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\WindowsPreview.Kinect\2.0\.\AppX\Retail\x64\WindowsPreview.Kinect_2.0_x64.appx</AppxLocation>
+      <MoreInfo>http://www.kinectforwindows.com</MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\WindowsPreview.Kinect\2.0\">
+      <Name>Microsoft.WindowsPreview.Kinect.8.1</Name>
+      <Version>2.0.1410.19000</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.WindowsPreview.Kinect.8.1, MinVersion = 2.0.1410.19000</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\WindowsPreview.Kinect\2.0\.\AppX\Retail\x86\WindowsPreview.Kinect_2.0_Win32.appx</AppxLocation>
+      <MoreInfo>http://www.kinectforwindows.com</MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>
