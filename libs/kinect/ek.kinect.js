@@ -214,7 +214,7 @@
             var newWidth = allPixelsValue * multiplier;
             var diff = (newWidth - allPixelsValue) * 0.5;
             return (positionValue * newWidth) - diff;
-        },
+        }
 
 
     };

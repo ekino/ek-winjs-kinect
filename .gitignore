@@ -1,4 +1,5 @@
 www/
+.idea/
 .sass-cache/
 .cordova/
 node_modules/
