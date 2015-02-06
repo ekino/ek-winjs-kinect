@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
-        <script type="text/javascript" src="libs/jquery/jquery-2.1.3.min.js"></script>
-        <script type="text/javascript" src="libs/winstore/winstore-jscompat.js"></script>
-        <script type="text/javascript" src="bower_components/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="libs/winstore/winstore-jscompat.js"></script>
 
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-          <span class="cursor"></span>
-          <span class="loader">
-            <input type="text" class="loader--inpt" readOnly="true">
-          </span>
+    <title>Hello Kinect v2</title>
+</head>
+<body>
+<div class="app">
+    <div class="cursor"></div>
 
-          <span id="configBtn"></span>
-          <div id="configBoard">    
-            <div class="canvas_container">
-              <canvas id="resultCanvas" width="512" height="424"></canvas>
-            </div>
-            <div class="canvas_container">
-              <canvas id="mainCanvas" width="512" height="424"></canvas>
-            </div>
-            <div class="labels">
-                <span>ACTIVE</span>
-                <span>GLOBAL</span>
-            </div>
-          </div>
-          
-          <div id="board">
-            <div class="wrapper">
-              <span class="element e1 square"><p></p>
-              </span><span class="element e2 square"><p></p>
-              </span><span class="element e3 square"><p></p>
-              </span><span class="element e4 square"><p></p>
-              </span><span class="element e5 square"><p></p>
-              </span><span class="element e6 square"><p></p>
-              </span><span class="element e7 square"><p></p>
-              </span><span class="element e8 square"><p></p>
-              </span><span class="element e9 square"><p></p></span>
-            </div>
-          </div>
+      <span class="loader">
+        <input type="text" class="loader__input" readOnly="true">
+      </span>
+
+
+    <div id="configBtn"></div>
+    <div id="configBoard">
+        <div class="canvas_container">
+            <canvas id="resultCanvas" width="512" height="424"></canvas>
         </div>
+        <div class="canvas_container">
+            <canvas id="mainCanvas" width="512" height="424"></canvas>
+        </div>
+        <div class="labels">
+            <span>ACTIVE</span>
+            <span>GLOBAL</span>
+        </div>
+    </div>
 
-   
+    <div id="board">
+        <div class="wrapper">
+            <div class="element e1 square"><span class='element__zoom'></span></div>
+            <div class="element e2 square"><span class='element__zoom'></span></div>
+            <div class="element e3 square"><span class='element__zoom'></span></div>
+            <div class="element e4 square"><span class='element__zoom'></span></div>
+            <div class="element e5 square"><span class='element__zoom'></span></div>
+            <div class="element e6 square"><span class='element__zoom'></span></div>
+            <div class="element e7 square"><span class='element__zoom'></span></div>
+            <div class="element e8 square"><span class='element__zoom'></span></div>
+            <div class="element e9 square"><span class='element__zoom'></span></div>
+        </div>
+    </div>
+</div>
 
-        <script src="bower_components/winjs/js/WinJS.js"></script>       
+<script src="bower_components/winjs/js/WinJS.js"></script>
 
-        <script type="text/javascript" src="libs/knob/jquery.knob.js"></script>
-        
-        <script type="text/javascript" src="libs/kinect/body/ek.KinectBodyData.js"></script>
-        <script type="text/javascript" src="libs/kinect/body/ek.KinectBodyFrame.js"></script>
-        <script type="text/javascript" src="libs/kinect/ek.KinectDebug.js"></script>
-        <script type="text/javascript" src="libs/kinect/ek.kinect.js"></script>
-        <script type="text/javascript" src="libs/kinect/events/ek.KinectPointer.js"></script>
-        
-        <script type="text/javascript" src="js/init.kinect.js"></script>
-        <script type="text/javascript" src="js/config.kinect.js"></script>
-    </body>
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="libs/knob/jquery.knob.js"></script>
+
+<script type="text/javascript" src="libs/kinect/body/ek.KinectBodyData.js"></script>
+<script type="text/javascript" src="libs/kinect/body/ek.KinectBodyFrame.js"></script>
+<script type="text/javascript" src="libs/kinect/ek.KinectDebug.js"></script>
+<script type="text/javascript" src="libs/kinect/ek.kinect.js"></script>
+<script type="text/javascript" src="libs/kinect/events/ek.KinectPointer.js"></script>
+
+<script type="text/javascript" src="js/init.kinect.js"></script>
+<script type="text/javascript" src="js/config.kinect.js"></script>
+</body>
 </html>

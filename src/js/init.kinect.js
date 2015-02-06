@@ -1,6 +1,10 @@
 (function(){
     "use strict";
 
+    var posX = 0;
+    var posY = 0;
+    var ekolor;
+
     var ekolors = [
         "#A9A8A9",
         "#8CB7E8",
@@ -13,117 +17,117 @@
         "#DC0031"
     ];
 
-
     var kinect = EkWinjs.Kinect.getInstance();
     var body = kinect.bodyFrame.trackBodyOn(0.5, 0.2, 1.5, 0.2);
 
 
+    $(document).ready(function() {
 
-//// GRID-LISTENERS ////
-    var tiles = document.getElementsByClassName("element");
+        var $loader = $('.loader');
+        var $cursor = $('.cursor');
 
-    for (var i = tiles.length - 1; i >= 0; i--) {
-        body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.OVER, functionOver,tiles[i]);
-        body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.OUT, functionOut,tiles[i]);
-        body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.HOLD_START, functionHoldStart,tiles[i],{handClosed:true});
-        body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.HOLD_PROGRESS, functionHoldProgress,tiles[i],{handClosed:true});
-        body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.HOLD_END, functionHoldEnd,tiles[i],{handClosed:true});
-    };
-
-    body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.MOVE, functionMoveHandler, document.body);
-
-
-    var posX = 0;
-    var posY = 0;
-
-//// GRID-EVENTS-FUNCTIONS ////
-    function functionMoveHandler(target) {
-
-
-        posX += (body.pointer.x - posX) * 0.5;
-        posY += (body.pointer.y - posY) * 0.5;
-
-        $('.loader').css({
-            left:  posX - 25,
-            top:   posY - 25
+        var $loader__input = $(".loader__input");
+        $loader__input.knob({
+            'min':0,
+            'max':100,
+            'width':50,
+            'thickness':0.2,
+            'fgColor':"#FFB718",
+            'displayInput':false
         });
 
-        $('.cursor').css({
-            left:  posX - 10,
-            top:   posY - 10,
-            opacity: 1
-        });
-    };
+        //// GRID-LISTENERS ////
+        var tiles = document.getElementsByClassName("element");
 
-    function functionHoldStart(target) {
+        for (var i = tiles.length - 1; i >= 0; i--) {
+            body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.OVER, functionOver,tiles[i]);
+            body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.OUT, functionOut,tiles[i]);
+            body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.HOLD_START, functionHoldStart,tiles[i],{handClosed:true});
+            body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.HOLD_PROGRESS, functionHoldProgress,tiles[i],{handClosed:true});
+            body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.HOLD_END, functionHoldEnd,tiles[i],{handClosed:true});
+        };
 
-        var ekolor = ekolors[Math.floor(Math.random() * ekolors.length)];
-        target.childNodes[0].style.background = ekolor;
-        target.style.background = "black";
-    };
+        body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.MOVE, functionMoveHandler, document.body);
 
-    function functionHoldProgress(target,progress) {
 
-        $('.loader').css('opacity', '1');
-        target.childNodes[0].style.width = (progress * 100) + "%";
-        target.childNodes[0].style.height = (progress * 100) + "%";
-        target.childNodes[0].style.left = 50 - ((progress * 100)/2) + "%";
-        target.childNodes[0].style.top = 50 - ((progress * 100)/2) + "%";
-        target.childNodes[0].style.opacity = progress;
-        $('.loader--inpt').val((progress * 100)).trigger('change');
+        //// GRID-EVENTS-FUNCTIONS ////
+        function functionMoveHandler(target) {
 
-        if ((progress * 100) < 100) {
-            setTimeout(function(){
-                $('.loader').css('opacity', '0');
-            }, 750);
+            posX+= (body.pointer.x - posX)*  0.5;
+            posY+= (body.pointer.y - posY) * 0.5;
+
+            $loader.css({left:  posX - 25, top:   posY - 25});
+            $cursor.css({left:  posX - 10, top:   posY - 10, opacity: 1 });
+        };
+
+        function functionHoldStart(target) {
+
+            ekolor = ekolors[Math.floor(Math.random() * ekolors.length)];
+
+            var $target = $(target);
+            $target.css({background:"#000000"});
+            $target.children('.element__zoom').css({background:ekolor});
+        };
+
+        function functionHoldProgress(target,progress) {
+
+            var $target = $(target)
+            $loader.css('opacity', '1');
+
+            $target.children('.element__zoom').css({
+                transform:"scale("+progress+")",
+                opacity:progress
+            });
+
+
+            $loader__input.val((progress * 100)).trigger('change');
+
+            if ((progress)<1) {
+
+                setTimeout(function(){
+                    $loader.css('opacity', '0');
+                }, 750);
+            }
+        };
+
+        function functionHoldEnd(target) {
+
+            var $target = $(target);
+
+            $loader.css('opacity', '0');
+
+            $target.css({opacity: 1,background:ekolor});
+            $target.removeClass("square");
+            $target.addClass("circle");
+        };
+
+        function functionOver(target) {
+
+            var $target = $(target);
+
+            toggleBorderRadius($target,"circle","square");
+
+        };
+
+        function functionOut(target) {
+
+            var $target = $(target);
+            $loader.css('opacity', '0');
+
+            toggleBorderRadius($target,"square","circle");
+
+        };
+
+
+        function toggleBorderRadius($target,classActive, classInactive){
+            if ($target.hasClass(classActive)) {
+                $target.css({borderRadius: "0%"});
+            } else if ($target.hasClass(classInactive)) {
+                $target.css({borderRadius: "50%"});
+            }
         }
-    };
-
-    function functionHoldEnd(target) {
-
-        $('.loader').css('opacity', '0');
-        target.style.opacity = 1;
-        $(target.className).removeClass("square");
-        $(target.className).addClass("circle");
-        target.style.background = ekolor;
-    };
-
-    function functionOver(target) {
-
-        if (hasClass(target,"square")) {
-            target.style.borderRadius = "50%";
-        } else if (hasClass(target,"circle")) {
-            target.style.borderRadius = "0%";
-        }
-    };
-
-    function functionOut(target) {
-
-        $('.loader').css('opacity', '0');
-        if (hasClass(target,"square")) {
-            target.style.borderRadius = "0%";
-        } else if (hasClass(target,"circle")) {
-            target.style.borderRadius = "50%";
-        }
-    };
 
 
-/////////////////////////////////////////
-///////////////-TOOLS-///////////////////
-/////////////////////////////////////////
-
-    function hasClass(ele,cls) {
-        return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
-    }
-
-
-    $(".loader--inpt").knob({
-        'min':0,
-        'max':100,
-        'width':50,
-        'thickness':0.2,
-        'fgColor':"#FFB718",
-        'displayInput':'false'
     });
 
 })();
