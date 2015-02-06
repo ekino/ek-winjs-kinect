@@ -90,15 +90,22 @@
             }
         };
 
-        function functionHoldEnd(target) {
+        function functionHoldEnd(target,progress) {
 
             var $target = $(target);
 
             $loader.css('opacity', '0');
 
-            $target.css({opacity: 1,background:ekolor});
-            $target.removeClass("square");
-            $target.addClass("circle");
+            if(progress==1){
+
+                $target.css({opacity: 1,background:ekolor});
+                $target.removeClass("square");
+                $target.addClass("circle");
+            }else{
+               // $loader.css('opacity', '0');
+            }
+
+
         };
 
         function functionOver(target) {
