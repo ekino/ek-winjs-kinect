@@ -18,7 +18,7 @@
     ];
 
     var kinect = EkWinjs.Kinect.getInstance();
-    var body = kinect.bodyFrame.trackBodyOn(0.5, 0.2, 1.5, 0.2);
+    var body = kinect.bodyFrame.getSelectedBody();
 
 
     $(document).ready(function() {
