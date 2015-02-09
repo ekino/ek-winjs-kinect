@@ -4,7 +4,8 @@
   "dependencies": {
     "winjs": "*",
     "jquery": "2.1.3",
-    "jquery-knob": "~1.2.11"
+    "jquery-knob": "~1.2.11",
+    "winstore-jscompat": "https://github.com/MSOpenTech/winstore-jscompat.git"
   },
   "devDependencies": {}
 }
