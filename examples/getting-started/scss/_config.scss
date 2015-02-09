@@ -1,0 +1,21 @@
+#configBoard {
+  text-align: center;
+  padding-top: 30px;
+
+  .canvas_container {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    display: inline-block;
+  }
+
+  .labels {
+    text-align: center;
+    padding-top: 10px;
+
+    span {
+      width: 512px;
+      display: inline-block;
+      color: rgba(255, 255, 255, 0.4);
+
+    }
+  }
+}

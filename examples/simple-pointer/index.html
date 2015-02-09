@@ -5,7 +5,7 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="viewport"
           content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"/>
-    <link rel="stylesheet" type="text/css" href="scss/getting_started.css"/>
+    <link rel="stylesheet" type="text/css" href="scss/simple_pointer.css"/>
 
     <script type="text/javascript" src="../src/winstore/winstore-jscompat.js"></script>
 
@@ -20,20 +20,19 @@
       </span>
 
 
-    <div id="configBtn"></div>
-    <div id="configBoard">
-        <div class="canvas_container">
-            <canvas id="resultCanvas" width="512" height="424"></canvas>
-        </div>
-        <div class="canvas_container">
-            <canvas id="mainCanvas" width="512" height="424"></canvas>
-        </div>
-        <div class="labels">
-            <span>ACTIVE</span>
-            <span>GLOBAL</span>
+    <div id="board">
+        <div class="wrapper">
+            <div class="element e1 square"><span class='element__zoom'></span></div>
+            <div class="element e2 square"><span class='element__zoom'></span></div>
+            <div class="element e3 square"><span class='element__zoom'></span></div>
+            <div class="element e4 square"><span class='element__zoom'></span></div>
+            <div class="element e5 square"><span class='element__zoom'></span></div>
+            <div class="element e6 square"><span class='element__zoom'></span></div>
+            <div class="element e7 square"><span class='element__zoom'></span></div>
+            <div class="element e8 square"><span class='element__zoom'></span></div>
+            <div class="element e9 square"><span class='element__zoom'></span></div>
         </div>
     </div>
-
 </div>
 
 <!-- bower:js -->
@@ -48,6 +47,6 @@
 <script type="text/javascript" src="../src/kinect/ek.kinect.js"></script>
 <script type="text/javascript" src="../src/kinect/events/ek.KinectPointer.js"></script>
 
-<script type="text/javascript" src="js/getting.started.js"></script>
+<script type="text/javascript" src="js/simple.pointer.js"></script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+.loader {
+
+  opacity: 0;
+  z-index: 5;
+  position: absolute;
+  cursor: none;
+
+  -webkit-transition: opacity 500ms ease;
+  -moz-transition: opacity 500ms ease;
+  -o-transition: opacity 500ms ease;
+  transition: opacity 500ms ease;
+
+  .loader--inpt {
+    display: none;
+  }
+}
+
+.cursor {
+  cursor: none;
+  z-index: 10;
+  position: absolute;
+  background: #FFB718;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
