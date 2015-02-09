@@ -5,13 +5,13 @@ module.exports = function (grunt) {
         build: {
             options:{
                 lineNumbers:true,
-                loadPath: ['<%= config.samples_dir %>/']
+                loadPath: ['<%= config.samples_dir %>']
             },
             files: [{
                 expand: true,
                 cwd: '<%= config.samples_dir %>',
                 src: ['**/*.scss'],
-                dest: '<%= config.www_dir %>/',
+                dest: '<%= config.www_dir %>',
                 ext: '.css'
             }]
         }
