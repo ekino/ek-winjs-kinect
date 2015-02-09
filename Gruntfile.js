@@ -1,172 +1,26 @@
-(function () {
-    'use strict';
-    var path = require('path');
-    module.exports = function (grunt) {
-        // load all grunt tasks
-        require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+'use strict';
+/**
+ * Gruntfile
+ *
+ * This Node script is executed when you run `grunt`.
+ * It's purpose is to load the Grunt tasks in your project's `tasks`
+ * folder, and allow you to add and remove tasks as you see fit.
+ *
+ * WARNING:
+ * Unless you know what you're doing, you shouldn't change this file.
+ * Check out the `tasks` directory instead.
+ */
 
-        /**
-         * Load in our build configuration file.
-         */
-        var userConfig = require('./build.config.js');
+module.exports = function (grunt) {
 
-        var taskConfig = {
-            watchfiles: {
-                all: [
-                    '<%= libs_dir %>/{,*/}*.js',
-                    '<%= src_dir %>/{,*/}*.html',
-                    '<%= src_dir %>/js/{,*/,*/}*.js',
-                    '<%= src_dir %>/css/{,*/}*.css',
-                    '<%= src_dir %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-                ]
-            },
-            sass: {
-                build: {
-                    options:{
-                        lineNumbers:true,
-                        loadPath: ['src/']
-                    },
-                    files: [{
-                        expand: true,
-                        cwd: '<%= src_dir %>',
-                        src: ['**/*.scss'],
-                        dest: '<%= build_dir %>/',
-                        ext: '.css'
-                    }]
-                }
-            },
-            watch: {
-                scripts: {
-                    files: [
-                        '<%= src_dir %>/js/**/*.js',
-                        '<%= src_dir %>/css/**/*.scss'
-                    ],
-                    tasks: ['build']
-                }
-            },
-            /**
-             * Copy files
-             */
-            copy: {
-                build:{
-                    files: [
-                        {
-                            expand: true,
-                            cwd: '<%= src_dir %>',
-                            src: ['*.*'],
-                            dest: '<%= build_dir %>/'
-                        },
-                        {
-                            expand: true,
-                            cwd: '<%= src_dir %>',
-                            src: [ '<%= app.img %>' ],
-                            dest: '<%= build_dir %>/'
-                        },
-                        {
-                            expand: true,
-                            cwd: '<%= src_dir %>',
-                            src: [ '<%= app.js %>' ],
-                            dest: '<%= build_dir %>/'
-                        },
-                        {
-                            expand: true,
-                            cwd: '',
-                            src: [ '<%= libs_dir %>/**' ],
-                            dest: '<%= build_dir %>/'
-                        },
-                        {
-                            expand: true,
-                            cwd: '',
-                            src: [ '<%= bower_dir %>/**' ],
-                            dest: '<%= build_dir %>/'
-                        },
-                    ]
-                },
-                www:{
-                    files: [
-                        {
-                            expand: true,
-                            cwd: '<%= build_dir %>',
-                            src: ['**'],
-                            dest: '<%= www_dir %>/'
-                        },
-                    ]
-                },
-            },
-            shell: {
-                build:{
-                    command: 'cordova build windows -- --win --release --archs="x64"' // Remove "windows -- --win" to build also for phone, replace arch by yours
-                },
-                run:{
-                    command: 'cordova run windows -- --win --debug --archs="x64"' // Remove "windows -- --win" to build also for phone, replace arch by yours
-                }
+    //load environment config variables
+    var config = require('./tasks/config.js');
+    grunt.config.set('config', config);
 
-            },
-            clean:{
-                build :{
-                    src:['build']
-                },
-                www:{
-                    src:['www']
-                }
-            },
+    //load all grunt config files
+    grunt.loadTasks('./tasks/config');
 
+    //load all grunt register task
+    grunt.loadTasks('./tasks/register');
 
-             /**
-             * Launch a local server. Use --livereload to refresh page automaticaly.
-             */
-            express: {
-                options: {
-                    port: 9000,
-                    hostname: '*',
-                    server: path.resolve('express.config.js')
-                },
-                build: {
-                    options: {
-                        bases: [
-                            path.resolve('./www')
-                        ],
-                        livereload: grunt.option('livereload')
-                    }
-                }
-            },
-
-            /**
-             * Open favorite browser at a specific url
-             */
-            open: {
-                dev: {
-                    path: 'http://localhost:<%= express.options.port %>/'
-                }
-            }
-        };
-
-        grunt.initConfig(grunt.util._.extend(taskConfig, userConfig));
-
-        /**
-         * Process files
-         */
-        grunt.registerTask('build', [
-            'sass',
-            'copy:build',
-            'copy:www',
-            'clean:build'
-        ]);
-
-         /**
-         * Launch local server
-         */
-        grunt.registerTask('server', [
-            'build',
-            'express',
-            'open',
-            'watch'
-        ]);
-
-        grunt.registerTask('build-win8', function(){
-           grunt.task.run(['build','shell:build']);
-        });
-
-        grunt.registerTask('default', ['server']);
-    };
-}());
+};

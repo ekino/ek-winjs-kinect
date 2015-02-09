@@ -3,12 +3,11 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="format-detection" content="telephone=no"/>
-    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport"
-          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"/>
+    <link rel="stylesheet" type="text/css" href="scss/index.css"/>
 
-    <script type="text/javascript" src="libs/winstore/winstore-jscompat.js"></script>
+    <script type="text/javascript" src="../src/winstore/winstore-jscompat.js"></script>
 
     <title>Hello Kinect v2</title>
 </head>
@@ -50,16 +49,17 @@
     </div>
 </div>
 
-<script src="bower_components/winjs/js/WinJS.js"></script>
+<!-- bower:js -->
+<script src="../../bower_components/jquery/dist/jquery.js"></script>
+<script src="../../bower_components/winjs/js/WinJS.js"></script>
+<!-- endbower -->
 
-<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="libs/knob/jquery.knob.js"></script>
-
-<script type="text/javascript" src="libs/kinect/body/ek.KinectBodyData.js"></script>
-<script type="text/javascript" src="libs/kinect/body/ek.KinectBodyFrame.js"></script>
-<script type="text/javascript" src="libs/kinect/ek.KinectDebug.js"></script>
-<script type="text/javascript" src="libs/kinect/ek.kinect.js"></script>
-<script type="text/javascript" src="libs/kinect/events/ek.KinectPointer.js"></script>
+<script type="text/javascript" src="../src/knob/jquery.knob.js"></script>
+<script type="text/javascript" src="../src/kinect/body/ek.KinectBodyData.js"></script>
+<script type="text/javascript" src="../src/kinect/body/ek.KinectBodyFrame.js"></script>
+<script type="text/javascript" src="../src/kinect/ek.KinectDebug.js"></script>
+<script type="text/javascript" src="../src/kinect/ek.kinect.js"></script>
+<script type="text/javascript" src="../src/kinect/events/ek.KinectPointer.js"></script>
 
 <script type="text/javascript" src="js/init.kinect.js"></script>
 <script type="text/javascript" src="js/config.kinect.js"></script>
