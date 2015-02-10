@@ -31,7 +31,7 @@ http://cordova.apache.org/docs/en/4.0.0/guide_overview_index.md.html
 #### 3) Install development environment : (npm, grunt, bower, sass)
 Skip this step if you already have nodejs, grunt, bower and sass installed.
 
-- nodejs : http://nodejs.org/
+- nodejs : http://nodejs.org
 
 - sass : http://sass-lang.com/install
     
@@ -39,7 +39,7 @@ Skip this step if you already have nodejs, grunt, bower and sass installed.
 
         npm install grunt -g
 
-- bower
+- bower : http://bower.io
 
         npm install bower -g
 
@@ -81,7 +81,7 @@ Let's plug the kinect !
 
 Because the Javascrip kinect SDK is linked with
 C++ library you need to install Visual Studio to build
-applications fir Windows 8.
+applications for Windows 8.
 
 
 - Install Visual Studio
@@ -91,7 +91,8 @@ applications fir Windows 8.
 - Build the Cordova windows 8 application
 
 		grunt build-win8
-        
+
+
 - Go to the ek-winjs-kinect/platforms/windows/ folder
 - Open CordovaApp.sln with Visual Studio.
 - Build the app by clicking on the "Local Machine" button.
