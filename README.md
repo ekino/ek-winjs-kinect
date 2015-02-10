@@ -104,10 +104,22 @@ applications for Windows 8.
 
 
 ## Features
--
+- Target one player on a specific area
 
+        //(x, xDeph, z, zDeph);
+        var body = kinect.bodyFrame.trackBodyOn(0.5, 0.2, 1.5, 0.2);
+
+- Fallback the API with Mouse Event on a browser
+- Automatically switch between right or left hand interaction
+- Windows 8 store ready to package with cordova
+- Draw the body joints to canvas for debugging
 
 
 
 ## Roadmap
--
+- Convert all raw data from Kinect SDK to the EK-winJs Library
+- Add utility to manage drag and drop easily
+- Optimize right vs left hand interaction
+- Target multiple player on different area
+- Show the Kinect camera on screen
+- Manage event bubbling on target listeners
