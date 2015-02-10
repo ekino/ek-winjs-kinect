@@ -72,6 +72,8 @@ you can program interaction on others platform because the EK-WinJS-Kinect libra
 
 http://localhost:9000/simple-pointer/
 
+(/docs/assets/simple-pointer-demo.png)
+
 And move your mouse over the squares...  
 Ooooooh crazy ! It's a Kinect Interaction !
 
