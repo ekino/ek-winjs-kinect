@@ -1,6 +1,5 @@
 www/
 .idea/
-build/
 .sass-cache/
 .cordova/
 node_modules/

@@ -11,7 +11,9 @@ module.exports = function (grunt) {
         'clean:build',
         'sass',
         'copy',
-        'wiredep'
+        'wiredep',
+        'concat',
+        'uglify'
     ]);
 
 

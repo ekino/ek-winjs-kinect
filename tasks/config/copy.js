@@ -12,7 +12,7 @@ module.exports = function (grunt) {
                 {
                     expand: true,
                     cwd: '',
-                    src: [ '<%= config.src_dir %>/**' ],
+                    src: [ '<%= config.build_dir %>/**' ],
                     dest: '<%= config.www_dir %>/'
                 },
                 {
