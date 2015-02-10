@@ -7,18 +7,17 @@
     "express": "~3.5.1",
     "grunt": "~0.4.1",
     "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-uglify": "^0.7.0",
     "grunt-contrib-watch": "~0.4.0",
     "grunt-express": "~1.2.1",
-    "grunt-injector": "^0.6.0",
     "grunt-open": "~0.2.3",
     "grunt-shell": "~0.7.0",
     "grunt-wiredep": "^2.0.0",
-    "include-all": "^0.1.6",
     "load-grunt-tasks": "~0.4.0",
-    "matchdep": "~0.1.1",
-    "time-grunt": "^1.0.0"
+    "matchdep": "~0.1.1"
   }
 }
