@@ -2,7 +2,7 @@
 The main goal of the library is to speed up the setup process
 for coding Kinect interactions by web developers.
 
-With the new Kinect for Windows SDK, you can use the Javascript
+With the new **Kinect for Windows SDK**, you can use the Javascript
 Kinect API in Windows 8 applications.
 
 Read this article to know the new possibilities of Kinect for Windows (V2):
@@ -10,50 +10,51 @@ http://www.ekino.com/kinect-v2-implementation-javascript/
 
 But the Kinect Javascript SDK isn't really plug and play with an HTML5 application.
 
-So, the library give you the possibility to code your first Kinect interaction easy as
-using mouse/touch events in Javascript. (See the Getting Started section)
+So, the library give you the possibility to **code your first Kinect interaction easy as
+using mouse/touch events in Javascript**. (See the Getting Started section)
 
 
 ## Installation
 
-###### 1) Install Kinect For Windows(K4W) SDK:
+#### 1) Install Kinect For Windows(K4W) SDK:
 http://www.microsoft.com/en-us/download/details.aspx?id=44561
 
 
-###### 2) Install Apache cordova
-http://cordova.apache.org/docs/en/4.0.0/guide_overview_index.md.html
+#### 2) Install Apache cordova
 Needed to build a Windows 8 Html5 application container
+
+http://cordova.apache.org/docs/en/4.0.0/guide_overview_index.md.html
 
     npm install cordova  -g
 
 
-###### 3) Install development environment : (npm, grunt, bower, sass)  
+#### 3) Install development environment : (npm, grunt, bower, sass)
 Skip this step if you already have nodejs, grunt, bower and sass installed.
 
 - nodejs : http://nodejs.org/
-    
-    
+
 - sass : http://sass-lang.com/install
     
 - grunt :  http://gruntjs.com/installing-grunt
-	
-   	npm install grunt -g   
+
+        npm install grunt -g
 
 - bower
 
-		npm install bower -g 
+        npm install bower -g
 
 
-###### 4) Install project and samples dependencies
+#### 4) Install project and samples dependencies
 - Install node_modules dependencies
 
 	Execute the next command in the root of the project
-		
-       npm install
+
+        npm install
 
 
 - Install Javascript and Css dependencies
-		bower install
+
+        bower install
 
 
 ## Getting started
@@ -61,7 +62,7 @@ Skip this step if you already have nodejs, grunt, bower and sass installed.
 Event if the Kinect SDK only works on Microsoft Win8 platform
 you can program interaction on others platform because the EK-WinJS-Kinect library will emulate the events with the mouse on your browser.  
 
-##### Launch the samples in your browser
+#### Launch the samples in your browser
 
 - Launch a local server
 
@@ -69,14 +70,14 @@ you can program interaction on others platform because the EK-WinJS-Kinect libra
     
 - Check the simple pointer demo
 
-	http://localhost:9000/simple-pointer/
+http://localhost:9000/simple-pointer/
 
 And move your mouse over the squares...  
 Ooooooh crazy ! It's a Kinect Interaction !
 
 Let's plug the kinect !
 
-##### Launch the samples in a Windows 8 application.
+#### Launch the samples in a Windows 8 application.
 
 Because the Javascrip kinect SDK is linked with
 C++ library you need to install Visual Studio to build
