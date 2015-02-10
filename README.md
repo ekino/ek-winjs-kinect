@@ -118,8 +118,10 @@ applications for Windows 8.
 
 ## Roadmap
 - Convert all raw data from Kinect SDK to the EK-winJs Library
+- Add simple  gestures like swipe, zoom, smile, wink etc.
 - Add utility to manage drag and drop easily
 - Optimize right vs left hand interaction
 - Target multiple player on different area
 - Show the Kinect camera on screen
 - Manage event bubbling on target listeners
+
