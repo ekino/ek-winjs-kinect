@@ -192,9 +192,11 @@
                 HOLD_START:"EkWinjs.Kinect.Events.Pointer.HOLD_START",
                 HOLD_PROGRESS:"EkWinjs.Kinect.Events.Pointer.HOLD_PROGRESS",
                 HOLD_END:"EkWinjs.Kinect.Events.Pointer.HOLD_END"
-            },
+            }
    
         },
+
+        VERSION:"alpha_0.0.1",
 
         //methods
         getInstance: function () {
