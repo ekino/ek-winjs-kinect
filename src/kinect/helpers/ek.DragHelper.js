@@ -1,12 +1,13 @@
 ﻿(function () {
     'use strict';
 
-    var _this;
+    var _this = null;
 
     /********************
         CONSTRUCTOR 
     *********************/ 
     var constructor = function (velocity, sensibilityRatio) {
+
         _this = this;
 
         _this.velocity = (velocity) ? velocity : 0.2;
@@ -43,8 +44,6 @@
        _startY : 0,
        _endY : 0,
     
-       _velocity : 0,
-       _sensibilityRatio : 0,
        _endVelocityCallback : null,
        _saveVelocityValue : 0,
     
@@ -59,11 +58,9 @@
         startDrag : function ( pointerX,  pointerY) {
             _this.isDrag = true;
             _this.needUpdate = true;
-            _this._startX =  pointerX * _this._sensibilityRatio + _this._endX;
-            _this._startY =  pointerY * _this._sensibilityRatio + _this._endY;
+            _this._startX =  pointerX * _this.sensibilityRatio + _this._endX;
+            _this._startY =  pointerY * _this.sensibilityRatio + _this._endY;
 
-
-            console.log("-------- startDrag  ",_this.isDrag);
         },
 
         /**
@@ -87,10 +84,10 @@
          */
         updateDrag : function ( pointerX,  pointerY) {
 
-            console.log("-------- update drag ");
             if (_this.isDrag) {
-                _this._dragX = (_this._startX -  pointerX * _this._sensibilityRatio);
-                _this._dragY = (_this._startY -  pointerY * _this._sensibilityRatio);
+                _this._dragX = (_this._startX -  pointerX * _this.sensibilityRatio);
+                _this._dragY = (_this._startY -  pointerY * _this.sensibilityRatio);
+
 
                 // test minimum and maximum values Y
                 if (!isNaN(_this.minY) && _this._dragY < _this.minY) _this._dragY = _this.minY;
@@ -102,8 +99,6 @@
             }
 
 
-            console.log("-------- _dragX ",this._dragX);
-            console.log("-------- _dragY ",this._dragY);
             if ((Math.abs(_this.x - _this._dragX) < 1) && (Math.abs(_this.y - _this._dragY) < 1)) {
 
                 if (!_this.isDrag) {
@@ -120,9 +115,8 @@
 
             } else {
 
-                _this.x += (_this._dragX - _this.x) * _this._velocity;
-                _this.y += (_this._dragY - _this.y) * _this._velocity;
-                console.log("-------- ",this.x);
+                _this.x += (_this._dragX - _this.x) * _this.velocity;
+                _this.y += (_this._dragY - _this.y) * _this.velocity;
 
             }
 
@@ -154,7 +148,7 @@
 
     //class definition
     var Class = WinJS.Class.define(constructor, instanceMembers, staticMembers);
-
+    _this = Class;
     WinJS.Namespace.define("EkWinjs", {
         DragHelper: Class
     });

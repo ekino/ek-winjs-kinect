@@ -1446,7 +1446,7 @@
         _callListenersOnTarget : function(arrayListeners) {
             for (var p in arrayListeners) {
                 if (arrayListeners[p] != null) {
-                   
+
                     // check if over target
                     if (this._targets[p] && (!this._targets[p].target || (this._targets[p].target && this._checkIfIsOver(this._targets[p].target)))) {
 
@@ -1494,6 +1494,9 @@
      *********************/
     var constructor = function (body, target, velocity, sensibilityRatio) {
 
+        velocity = (velocity) ? velocity : 0.2;
+        sensibilityRatio = (sensibilityRatio) ? sensibilityRatio : 0.5;
+
         this._body = body;
         _this = this;
 
@@ -1505,6 +1508,7 @@
             this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.UP, this._onUpHandler, target);
             this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.DOWN, this._onDownHandler, target);
         }
+
 
     }
 
@@ -1533,11 +1537,9 @@
 
             if (_this._dragHelper.needUpdate) {
 
-                console.log("_this._pointerX ",_this._pointerX);
                 _this._dragHelper.updateDrag(_this._pointerX, _this._pointerY);
                 _this.x = _this._dragHelper.x;
                 _this.y = _this._dragHelper.y;
-                console.log("_this._dragHelper.x :: ",_this._dragHelper.x);
             }
 
         },
@@ -1581,7 +1583,7 @@
         /**
          *
          */
-        getNeedUpdate: function () {
+        isRefresh: function () {
             return this._dragHelper.needUpdate;
         },
 
@@ -1605,7 +1607,6 @@
          * @private
          */
         _getMousePosition: function (event) {
-
             _this._pointerX = _this._body.pointer.x;
             _this._pointerY = _this._body.pointer.y;
         },
@@ -1617,7 +1618,6 @@
          */
         _onDownHandler: function (event) {
 
-            console.log("_onDownHandler")
             _this._pointerX = _this._body.pointer.x;
             _this._pointerY = _this._body.pointer.y;
             _this._dragHelper.startDrag(_this._pointerX , _this._pointerY);
@@ -1653,12 +1653,13 @@
 (function () {
     'use strict';
 
-    var _this;
+    var _this = null;
 
     /********************
         CONSTRUCTOR 
     *********************/ 
     var constructor = function (velocity, sensibilityRatio) {
+
         _this = this;
 
         _this.velocity = (velocity) ? velocity : 0.2;
@@ -1695,8 +1696,6 @@
        _startY : 0,
        _endY : 0,
     
-       _velocity : 0,
-       _sensibilityRatio : 0,
        _endVelocityCallback : null,
        _saveVelocityValue : 0,
     
@@ -1711,11 +1710,9 @@
         startDrag : function ( pointerX,  pointerY) {
             _this.isDrag = true;
             _this.needUpdate = true;
-            _this._startX =  pointerX * _this._sensibilityRatio + _this._endX;
-            _this._startY =  pointerY * _this._sensibilityRatio + _this._endY;
+            _this._startX =  pointerX * _this.sensibilityRatio + _this._endX;
+            _this._startY =  pointerY * _this.sensibilityRatio + _this._endY;
 
-
-            console.log("-------- startDrag  ",_this.isDrag);
         },
 
         /**
@@ -1739,10 +1736,10 @@
          */
         updateDrag : function ( pointerX,  pointerY) {
 
-            console.log("-------- update drag ");
             if (_this.isDrag) {
-                _this._dragX = (_this._startX -  pointerX * _this._sensibilityRatio);
-                _this._dragY = (_this._startY -  pointerY * _this._sensibilityRatio);
+                _this._dragX = (_this._startX -  pointerX * _this.sensibilityRatio);
+                _this._dragY = (_this._startY -  pointerY * _this.sensibilityRatio);
+
 
                 // test minimum and maximum values Y
                 if (!isNaN(_this.minY) && _this._dragY < _this.minY) _this._dragY = _this.minY;
@@ -1754,8 +1751,6 @@
             }
 
 
-            console.log("-------- _dragX ",this._dragX);
-            console.log("-------- _dragY ",this._dragY);
             if ((Math.abs(_this.x - _this._dragX) < 1) && (Math.abs(_this.y - _this._dragY) < 1)) {
 
                 if (!_this.isDrag) {
@@ -1772,9 +1767,8 @@
 
             } else {
 
-                _this.x += (_this._dragX - _this.x) * _this._velocity;
-                _this.y += (_this._dragY - _this.y) * _this._velocity;
-                console.log("-------- ",this.x);
+                _this.x += (_this._dragX - _this.x) * _this.velocity;
+                _this.y += (_this._dragY - _this.y) * _this.velocity;
 
             }
 
@@ -1806,7 +1800,7 @@
 
     //class definition
     var Class = WinJS.Class.define(constructor, instanceMembers, staticMembers);
-
+    _this = Class;
     WinJS.Namespace.define("EkWinjs", {
         DragHelper: Class
     });

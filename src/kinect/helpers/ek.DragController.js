@@ -8,6 +8,9 @@
      *********************/
     var constructor = function (body, target, velocity, sensibilityRatio) {
 
+        velocity = (velocity) ? velocity : 0.2;
+        sensibilityRatio = (sensibilityRatio) ? sensibilityRatio : 0.5;
+
         this._body = body;
         _this = this;
 
@@ -19,6 +22,7 @@
             this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.UP, this._onUpHandler, target);
             this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.DOWN, this._onDownHandler, target);
         }
+
 
     }
 
@@ -47,11 +51,9 @@
 
             if (_this._dragHelper.needUpdate) {
 
-                console.log("_this._pointerX ",_this._pointerX);
                 _this._dragHelper.updateDrag(_this._pointerX, _this._pointerY);
                 _this.x = _this._dragHelper.x;
                 _this.y = _this._dragHelper.y;
-                console.log("_this._dragHelper.x :: ",_this._dragHelper.x);
             }
 
         },
@@ -95,7 +97,7 @@
         /**
          *
          */
-        getNeedUpdate: function () {
+        isRefresh: function () {
             return this._dragHelper.needUpdate;
         },
 
@@ -119,7 +121,6 @@
          * @private
          */
         _getMousePosition: function (event) {
-
             _this._pointerX = _this._body.pointer.x;
             _this._pointerY = _this._body.pointer.y;
         },
@@ -131,7 +132,6 @@
          */
         _onDownHandler: function (event) {
 
-            console.log("_onDownHandler")
             _this._pointerX = _this._body.pointer.x;
             _this._pointerY = _this._body.pointer.y;
             _this._dragHelper.startDrag(_this._pointerX , _this._pointerY);

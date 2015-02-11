@@ -14,12 +14,15 @@
         var $cursor = $('.cursor');
 
 
-        var dragController = new EkWinjs.DragController(body,document.body);
+        var dragController = new EkWinjs.DragController(body,document.body,0.001,1);
 
 
         function update(){
 
-            console.log(dragController.x);
+            if(dragController.isRefresh())
+            {
+                console.log("-- "+dragController.x);
+            }
 
             dragController.update();
             window.requestAnimationFrame(update);
