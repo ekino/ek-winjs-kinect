@@ -137,7 +137,7 @@
                         handClosed = this._body.rightHandClosed;
                         handOpen = this._body.rightHandOpen;
 
-                        this.x = EkWinjs.Kinect.multiplyPixelPoint(this._body.rightHand.x,this.appWidth,this._body.pointMultiplier);
+                        this.x = EkWinjs.Kinect.multiplyPixelPoint(this._body.rightHand.x, this.appWidth,this._body.pointMultiplier);
                         this.y = EkWinjs.Kinect.multiplyPixelPoint(this._body.rightHand.y, this.appHeight, this._body.pointMultiplier);
                         
                         

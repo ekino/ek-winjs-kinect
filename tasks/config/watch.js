@@ -4,11 +4,21 @@ module.exports = function (grunt) {
         scripts: {
             files: [
                 '<%= config.src_dir %>/**/*.js',
-                '<%= config.samples_dir %>/**/*.js',
-                '<%= config.samples_dir %>/**/*.html',
+                '<%= config.samples_dir %>/**/*.js'
+            ],
+            tasks: ['copy:js']
+        },
+        sass: {
+            files: [
                 '<%= config.samples_dir %>/**/*.scss'
             ],
-            tasks: ['build']
+            tasks: ['sass']
+        },
+        markup: {
+            files: [
+                '<%= config.samples_dir %>/**/*.html'
+            ],
+            tasks: ['copy:markup']
         }
     });
 

@@ -1146,7 +1146,7 @@
                         handClosed = this._body.rightHandClosed;
                         handOpen = this._body.rightHandOpen;
 
-                        this.x = EkWinjs.Kinect.multiplyPixelPoint(this._body.rightHand.x,this.appWidth,this._body.pointMultiplier);
+                        this.x = EkWinjs.Kinect.multiplyPixelPoint(this._body.rightHand.x, this.appWidth,this._body.pointMultiplier);
                         this.y = EkWinjs.Kinect.multiplyPixelPoint(this._body.rightHand.y, this.appHeight, this._body.pointMultiplier);
                         
                         
@@ -1478,6 +1478,337 @@
 
     WinJS.Namespace.define("EkWinjs", {
         KinectPointer: Class
+    });
+
+})();
+
+
+
+(function () {
+    'use strict';
+
+    var _this;
+
+    /********************
+     CONSTRUCTOR
+     *********************/
+    var constructor = function (body, target, velocity, sensibilityRatio) {
+
+        this._body = body;
+        _this = this;
+
+        this._dragHelper = new EkWinjs.DragHelper(velocity, sensibilityRatio);
+
+        if (this._body && this._body.pointer) {
+
+            this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.MOVE, this._getMousePosition, target);
+            this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.UP, this._onUpHandler, target);
+            this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.DOWN, this._onDownHandler, target);
+        }
+
+    }
+
+    /********************
+     INSTANCE DEFINE
+     *********************/
+    var instanceMembers = {
+
+        /********************
+         Public variables
+         *********************/
+
+        x: 0,
+        y: 0,
+
+
+        /********************
+         Public methods
+         *********************/
+        /**
+         *
+         * @public
+         */
+        update: function () {
+
+
+            if (_this._dragHelper.needUpdate) {
+
+                console.log("_this._pointerX ",_this._pointerX);
+                _this._dragHelper.updateDrag(_this._pointerX, _this._pointerY);
+                _this.x = _this._dragHelper.x;
+                _this.y = _this._dragHelper.y;
+                console.log("_this._dragHelper.x :: ",_this._dragHelper.x);
+            }
+
+        },
+
+        /**
+         *
+         * @param min
+         * @param max
+         */
+        setLimitY: function (min, max) {
+            this._dragHelper.minY = min;
+            this._dragHelper.maxY = max;
+        },
+
+        /**
+         *
+         * @param min
+         * @param max
+         */
+        setLimitX: function (min, max) {
+            this._dragHelper.minX = min;
+            this._dragHelper.maxX = max;
+        },
+
+        /**
+         *
+         * @param value
+         */
+        setInitX: function (value) {
+            this._dragHelper.x = this._dragHelper._endX = value;
+        },
+
+        /**
+         *
+         * @param value
+         */
+        setInitY: function (value) {
+            this._dragHelper.initY = this._dragHelper._endY = value;
+        },
+
+        /**
+         *
+         */
+        getNeedUpdate: function () {
+            return this._dragHelper.needUpdate;
+        },
+
+
+        /********************
+         Private variables
+         *********************/
+        _dragHelper: null,
+        _pointerX: 0,
+        _pointerY: 0,
+        _body:null,
+
+
+        /********************
+         Private methods
+         *********************/
+
+        /**
+         *
+         * @param event
+         * @private
+         */
+        _getMousePosition: function (event) {
+
+            _this._pointerX = _this._body.pointer.x;
+            _this._pointerY = _this._body.pointer.y;
+        },
+
+        /**
+         *
+         * @param event
+         * @private
+         */
+        _onDownHandler: function (event) {
+
+            console.log("_onDownHandler")
+            _this._pointerX = _this._body.pointer.x;
+            _this._pointerY = _this._body.pointer.y;
+            _this._dragHelper.startDrag(_this._pointerX , _this._pointerY);
+        },
+
+
+        /**
+         *
+         * @private
+         */
+        _onUpHandler: function () {
+            _this._dragHelper.stopDrag();
+        }
+    };
+
+    /********************
+     STATICS
+     *********************/
+    var staticMembers = {};
+
+
+    //class definition
+    var Class = WinJS.Class.define(constructor, instanceMembers, staticMembers);
+
+    WinJS.Namespace.define("EkWinjs", {
+        DragController: Class
+    });
+
+})();
+
+
+
+(function () {
+    'use strict';
+
+    var _this;
+
+    /********************
+        CONSTRUCTOR 
+    *********************/ 
+    var constructor = function (velocity, sensibilityRatio) {
+        _this = this;
+
+        _this.velocity = (velocity) ? velocity : 0.2;
+        _this.sensibilityRatio = (sensibilityRatio) ? sensibilityRatio : 0.5;
+	}
+	
+    /********************
+        INSTANCE DEFINE 
+    *********************/ 
+    var instanceMembers = {
+
+        /********************
+            Public variables 
+        *********************/
+
+       velocity: 0,
+       sensibilityRatio: 0,
+
+       isDrag : false,
+       needUpdate : false,
+       x : 0,
+       y : 0,
+       minX : NaN,
+       minY : NaN,
+       maxY : NaN,
+       maxX : NaN,
+    
+       _dragX : 0,
+       _dragY : 0,
+    
+       _startX : 0,
+       _endX : 0,
+    
+       _startY : 0,
+       _endY : 0,
+    
+       _velocity : 0,
+       _sensibilityRatio : 0,
+       _endVelocityCallback : null,
+       _saveVelocityValue : 0,
+    
+        /********************
+            Public methods 
+        *********************/
+        /**
+         *
+         * @param  pointerX
+         * @param  pointerY
+         */
+        startDrag : function ( pointerX,  pointerY) {
+            _this.isDrag = true;
+            _this.needUpdate = true;
+            _this._startX =  pointerX * _this._sensibilityRatio + _this._endX;
+            _this._startY =  pointerY * _this._sensibilityRatio + _this._endY;
+
+
+            console.log("-------- startDrag  ",_this.isDrag);
+        },
+
+        /**
+         *
+         * @param endVelocityCallback
+         */
+        stopDrag : function (endVelocityCallback) {
+            if (_this.isDrag) {
+                _this.isDrag = false;
+                _this._endX = _this._dragX;
+                _this._endY = _this._dragY;
+
+                _this._endVelocityCallback = endVelocityCallback;
+            }
+        },
+
+        /**
+         *
+         * @param  pointerX
+         * @param  pointerY
+         */
+        updateDrag : function ( pointerX,  pointerY) {
+
+            console.log("-------- update drag ");
+            if (_this.isDrag) {
+                _this._dragX = (_this._startX -  pointerX * _this._sensibilityRatio);
+                _this._dragY = (_this._startY -  pointerY * _this._sensibilityRatio);
+
+                // test minimum and maximum values Y
+                if (!isNaN(_this.minY) && _this._dragY < _this.minY) _this._dragY = _this.minY;
+                if (!isNaN(_this.maxY) && _this._dragY > _this.maxY) _this._dragY = _this.maxY;
+
+                // test minimum and maximum values X
+                if (!isNaN(_this.minX) && _this._dragX < _this.minX) _this._dragX = _this.minX;
+                if (!isNaN(_this.maxX) && _this._dragX > _this.maxX) _this._dragX = _this.maxX;
+            }
+
+
+            console.log("-------- _dragX ",this._dragX);
+            console.log("-------- _dragY ",this._dragY);
+            if ((Math.abs(_this.x - _this._dragX) < 1) && (Math.abs(_this.y - _this._dragY) < 1)) {
+
+                if (!_this.isDrag) {
+                    if (_this._endVelocityCallback != null) _this._endVelocityCallback();
+                    _this._endVelocityCallback = null;
+
+                    _this.needUpdate = false;
+
+                    _this._dragX = 0;
+                    _this._dragY = 0;
+                    _this._startX = 0;
+                    _this._startY = 0;
+                }
+
+            } else {
+
+                _this.x += (_this._dragX - _this.x) * _this._velocity;
+                _this.y += (_this._dragY - _this.y) * _this._velocity;
+                console.log("-------- ",this.x);
+
+            }
+
+        },
+
+        /********************
+            Private variables 
+        *********************/
+        _name: "",
+
+        /********************
+            Private methods 
+        *********************/
+        _render: function () {
+        }
+
+
+
+
+    };
+
+    /********************
+        STATICS 
+    *********************/
+    var staticMembers = {
+
+    };
+
+
+    //class definition
+    var Class = WinJS.Class.define(constructor, instanceMembers, staticMembers);
+
+    WinJS.Namespace.define("EkWinjs", {
+        DragHelper: Class
     });
 
 })();
