@@ -233,9 +233,7 @@
                     _this._selectedBody.rightHandClosed = (body.handRightState == WindowsPreview.Kinect.HandState.closed);
                     _this._selectedBody.rightHandOpen = (body.handRightState == WindowsPreview.Kinect.HandState.open);
 
-                    _this._selectedBody.rightHand.x = handRightPosition.x / _this._frameWidth;
-                    _this._selectedBody.rightHand.y = handRightPosition.y / _this._frameHeight;
-                    _this._selectedBody.rightHand.z = handRightPosition.z;
+                    _this._fillRawBodyPoint(_this._selectedBody.rightHand, handRightPosition);
 
                     _this._selectedBody.handRightTracked = true;
                 } else {
@@ -249,9 +247,7 @@
                     _this._selectedBody.leftHandClosed = (body.handLeftState == WindowsPreview.Kinect.HandState.closed);
                     _this._selectedBody.leftHandOpen = (body.handLeftState == WindowsPreview.Kinect.HandState.open);
 
-                    _this._selectedBody.leftHand.x = handLeftPosition.x / _this._frameWidth;
-                    _this._selectedBody.leftHand.y = handLeftPosition.y / _this._frameHeight;
-                    _this._selectedBody.leftHand.z = handLeftPosition.z;
+                    _this._fillRawBodyPoint(_this._selectedBody.leftHand, handLeftPosition);
 
 
                     _this._selectedBody.handLeftTracked = true;
@@ -259,14 +255,9 @@
                     _this._selectedBody.handLeftTracked = false;
                 }
 
-                _this._selectedBody.head.x = headPosition.x / _this._frameWidth;
-                _this._selectedBody.head.y = headPosition.y / _this._frameHeight;
-                _this._selectedBody.head.z = headPosition.z;
-
-
-                _this._selectedBody.spineBase.x = jointPoints[_this._JointType.spineBase].x / _this._frameWidth;
-                _this._selectedBody.spineBase.y = jointPoints[_this._JointType.spineBase].y / _this._frameHeight;
-                _this._selectedBody.spineBase.z = jointPoints[_this._JointType.spineBase].z;
+                _this._fillRawBodyPoint(_this._selectedBody.head, headPosition);
+                _this._fillRawBodyPoint(_this._selectedBody.neck, jointPoints[_this._JointType.neck]);
+                _this._fillRawBodyPoint(_this._selectedBody.spineBase, jointPoints[_this._JointType.spineBase]);
 
                 _this._selectedBody.isTracked = true;
 
@@ -277,6 +268,13 @@
 
 
 
+        },
+
+
+        _fillRawBodyPoint: function (position, joint) {
+            position.x = joint.x / _this._frameWidth;
+            position.y = joint.y / _this._frameHeight;
+            position.z = joint.z;
         },
 
         _createJointPoints: function () {

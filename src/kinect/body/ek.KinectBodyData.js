@@ -18,7 +18,7 @@
         *********************/
 
         id: 0,
-        //EkWinjs.KinectPointer
+
         pointer: null,
 
         pointMultiplier:1,
@@ -31,13 +31,42 @@
             handPushZ: 0.25
         },
 
+        //hand
         rightHand: { x: 0, y: 0, z: 0 },
-
         leftHand: { x: 0, y: 0, z: 0 },
 
+        //torso
         head: { x: 0, y: 0, z: 0 },
-
+        neck: { x: 0, y: 0, z: 0 },
+        spineShoulder: { x: 0, y: 0, z: 0 },
+        spineMid: { x: 0, y: 0, z: 0 },
         spineBase: { x: 0, y: 0, z: 0 },
+
+        //right arm
+        shoulderRight: { x: 0, y: 0, z: 0 },
+        elbowRight: { x: 0, y: 0, z: 0 },
+        wristRight: { x: 0, y: 0, z: 0 },
+        handTipRight: { x: 0, y: 0, z: 0 },
+        thumbRight: { x: 0, y: 0, z: 0 },
+
+        //left arm
+        shoulderLeft: { x: 0, y: 0, z: 0 },
+        elbowLeft: { x: 0, y: 0, z: 0 },
+        thumbLeft: { x: 0, y: 0, z: 0 },
+        wristLeft: { x: 0, y: 0, z: 0 },
+
+        //right leg
+        hipRight: { x: 0, y: 0, z: 0 },
+        kneeRight: { x: 0, y: 0, z: 0 },
+        ankleRight: { x: 0, y: 0, z: 0 },
+        footRight: { x: 0, y: 0, z: 0 },
+
+        //left leg
+        hipLeft: { x: 0, y: 0, z: 0 },
+        kneeLeft: { x: 0, y: 0, z: 0 },
+        ankleLeft: { x: 0, y: 0, z: 0 },
+        footLeft: { x: 0, y: 0, z: 0 },
+
 
         isTracked: false,
         handLeftTracked: false,
@@ -70,16 +99,14 @@
             Private methods 
         *********************/
         _funct: function () {
-        },
+        }
     };
 
     /********************
         STATICS 
     *********************/
     var staticMembers = {
-        ENUM: "enum",
-        funct: function () {
-        }
+
     };
 
 
