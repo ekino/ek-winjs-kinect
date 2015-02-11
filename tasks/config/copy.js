@@ -11,14 +11,18 @@ module.exports = function (grunt) {
                 }
             ]
         },
-        js:{
+        build:{
             files: [
                 {
                     expand: true,
                     cwd: '',
                     src: [ '<%= config.build_dir %>/**/*.js' ],
                     dest: '<%= config.www_dir %>/'
-                },
+                }
+            ]
+        },
+        js:{
+            files: [
                 {
                     expand: true,
                     cwd: '<%= config.samples_dir %>',
