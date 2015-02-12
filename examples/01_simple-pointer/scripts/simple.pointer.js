@@ -41,6 +41,7 @@
 
         for (var i = tiles.length - 1; i >= 0; i--) {
             body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.OVER, functionOver,tiles[i]);
+
             body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.OUT, functionOut,tiles[i]);
             body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.HOLD_START, functionHoldStart,tiles[i],{handClosed:true});
             body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.HOLD_PROGRESS, functionHoldProgress,tiles[i],{handClosed:true});
@@ -52,6 +53,7 @@
 
         //// GRID-EVENTS-FUNCTIONS ////
         function functionMoveHandler(target) {
+
 
             posX+= (body.pointer.x - posX)*  0.5;
             posY+= (body.pointer.y - posY) * 0.5;

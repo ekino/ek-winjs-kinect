@@ -117,11 +117,10 @@ applications for Windows 8.
 
 
 ## Roadmap
-- Add multiple addEventListeners on the same target
 - Add possibility to listen to a jquery target
 - Add simple  gestures like swipe, zoom, smile, wink etc.
 - Optimize right vs left hand interaction
 - Target multiple player on different area
 - Show the Kinect camera on screen
 - Manage event bubbling on target listeners
-
+- Find a lighter implementation class than WinJs.
