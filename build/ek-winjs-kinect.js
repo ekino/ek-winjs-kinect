@@ -1300,6 +1300,13 @@
             rect.width = target.offsetWidth;
             rect.height = target.offsetHeight;
 
+            var transform = target.style.transform;
+            var matrix = transform.replace(/[^0-9\-.,]/g, '').split(',');
+
+            var x = matrix[12] || matrix[4];//translate x
+            var y = matrix[13] || matrix[5];//translate y
+            //debugger;
+
             rect.x = 0;
             rect.y = 0;
             var elem = target;

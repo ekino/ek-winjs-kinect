@@ -20,7 +20,13 @@
 
             if(dragController.isRefresh())
             {
-                $square.css({left:-dragController.x,top:-dragController.y});
+                var posX = -dragController.x+"px";
+                var posY = -dragController.y+"px";
+
+                $square.css({
+                    transform: 'translate3d('+posX+','+posY+','+posY+')'
+                });
+
             }
 
             dragController.update();

@@ -1,12 +1,13 @@
 #board {
   position: relative;
   height: 100vh;
+  perspective: 50vh;
+  transform-style:preserve-3d;
 }
 
 .square{
   width: 200px;
   height: 200px;
   background: white;
-  position: relative;
-  margin: auto;
+  transform: translateX(100px);
 }
