@@ -12,16 +12,18 @@
     $(document).ready(function() {
 
         var $cursor = $('.cursor');
+        var $square = $('.square');
 
-
-        var dragController = new EkWinjs.DragController(body,document.body,0.001,1);
+        var dragController = new EkWinjs.DragController(body,$square[0],0.1,1);
 
 
         function update(){
 
+            //console.log("-- "+dragController.x);
             if(dragController.isRefresh())
             {
-                console.log("-- "+dragController.x);
+
+                $square.css({left:-dragController.x,top:-dragController.y});
             }
 
             dragController.update();
@@ -37,6 +39,7 @@
 
         //// GRID-EVENTS-FUNCTIONS ////
         function functionMoveHandler(target) {
+            console.log("functionMoveHandler ",body.pointer.x )
 
             posX+= (body.pointer.x - posX)*  0.5;
             posY+= (body.pointer.y - posY) * 0.5;

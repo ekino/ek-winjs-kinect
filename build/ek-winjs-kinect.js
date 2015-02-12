@@ -1504,8 +1504,8 @@
 
         if (this._body && this._body.pointer) {
 
-            this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.MOVE, this._getMousePosition, target);
-            this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.UP, this._onUpHandler, target);
+            this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.MOVE, this._getMousePosition, document.body);
+            this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.UP, this._onUpHandler, document.body);
             this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.DOWN, this._onDownHandler, target);
         }
 

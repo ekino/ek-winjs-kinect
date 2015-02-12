@@ -3,7 +3,7 @@
   opacity: 0;
   z-index: 5;
   position: absolute;
-  cursor: none;
+  //cursor: none;
 
   -webkit-transition: opacity 500ms ease;
   -moz-transition: opacity 500ms ease;
@@ -16,7 +16,7 @@
 }
 
 .cursor {
-  cursor: none;
+  //cursor: none;
   z-index: 10;
   position: absolute;
   background: #FFB718;
