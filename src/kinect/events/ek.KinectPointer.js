@@ -41,7 +41,7 @@
                 forceHandClosed = settings.handClosed;
             }
 
-            this._targets[targetId] = { target: target, isOver:false, isHold:false, forceHandClosed:forceHandClosed, holdComplete:false };
+            this._targets[targetId] = { target: $(target), isOver:false, isHold:false, forceHandClosed:forceHandClosed, holdComplete:false };
             var listener = {targetId:targetId,funct:funct};
 
             switch (type) {
@@ -285,30 +285,18 @@
         },
 
         //get rectangle area of Html target
-        _getRectangle : function (target) {
+        _getRectangle : function ($target) {
             var rect = {};
+
+            var target = $target[0];
 
             rect.width = target.offsetWidth;
             rect.height = target.offsetHeight;
 
-            var transform = target.style.transform;
-            var matrix = transform.replace(/[^0-9\-.,]/g, '').split(',');
 
-            var x = matrix[12] || matrix[4];//translate x
-            var y = matrix[13] || matrix[5];//translate y
-            //debugger;
-
-            rect.x = 0;
-            rect.y = 0;
-            var elem = target;
-            do {
-                if (!isNaN(elem.offsetLeft)) {
-                    rect.x += elem.offsetLeft;
-                }
-                if (!isNaN(elem.offsetTop)) {
-                    rect.y += elem.offsetTop;
-                }
-            } while (elem = elem.offsetParent);
+            var position = $target.position();
+            rect.x = position.left;
+            rect.y = position.top;
 
             return rect;
 
@@ -319,13 +307,16 @@
         },
 
         //check if pointer is over target
-        _checkIfIsOver : function(target) {
+        _checkIfIsOver : function($target) {
             var result = false;
             var rect;
+
+            var target = $target[0];
+
             if (target.width && target.x) {
                 rect = target;
             } else {
-                rect = this._getRectangle(target);
+                rect = this._getRectangle($target);
             }
 
             if (this.x > rect.x && this.x < rect.x + rect.width && this.y > rect.y && this.y < rect.y + rect.height) {
