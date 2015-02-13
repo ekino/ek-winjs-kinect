@@ -23,7 +23,8 @@
         *********************/
         name: "",
         x : 0,
-        y: 0, 
+        y: 0,
+        z: 0,
         appWidth : window.innerWidth,
         appHeight : window.innerHeight,
 
@@ -221,6 +222,14 @@
                 }
 
             });
+
+            document.addEventListener("mousewheel", function(event){
+
+                _this.z+= event.wheelDelta;
+                _this._renderMoveCallbacks();
+            });
+
+
 
 
             function updateMousePosition(event){

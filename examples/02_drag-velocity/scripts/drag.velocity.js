@@ -18,9 +18,10 @@
             {
                 var posX = -dragController.x+"px";
                 var posY = -dragController.y+"px";
+                var posZ = -dragController.z+"px";
 
                 $square.css({
-                    transform: 'translate3d('+posX+','+posY+','+0+'px)'
+                    transform: 'translate3d('+posX+','+posY+','+posZ+')'
                 });
 
             }

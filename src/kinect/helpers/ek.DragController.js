@@ -37,6 +37,7 @@
 
         x: 0,
         y: 0,
+        z: 0,
 
 
         /********************
@@ -51,9 +52,11 @@
 
             if (_this._dragHelper.needUpdate) {
 
-                _this._dragHelper.updateDrag(_this._pointerX, _this._pointerY);
+                _this._dragHelper.updateDrag(_this._pointerX, _this._pointerY, _this._pointerZ);
                 _this.x = _this._dragHelper.x;
                 _this.y = _this._dragHelper.y;
+                _this.z = _this._dragHelper.z;
+
             }
 
         },
@@ -68,6 +71,7 @@
             this._dragHelper.maxY = max;
         },
 
+
         /**
          *
          * @param min
@@ -76,6 +80,16 @@
         setLimitX: function (min, max) {
             this._dragHelper.minX = min;
             this._dragHelper.maxX = max;
+        },
+
+        /**
+         *
+         * @param min
+         * @param max
+         */
+        setLimitZ: function (min, max) {
+            this._dragHelper.minZ = min;
+            this._dragHelper.maxZ = max;
         },
 
         /**
@@ -108,6 +122,7 @@
         _dragHelper: null,
         _pointerX: 0,
         _pointerY: 0,
+        _pointerZ: 0,
         _body:null,
 
 
@@ -123,6 +138,7 @@
         _getMousePosition: function (event) {
             _this._pointerX = _this._body.pointer.x;
             _this._pointerY = _this._body.pointer.y;
+            _this._pointerZ = _this._body.pointer.z;
         },
 
         /**
@@ -134,7 +150,8 @@
 
             _this._pointerX = _this._body.pointer.x;
             _this._pointerY = _this._body.pointer.y;
-            _this._dragHelper.startDrag(_this._pointerX , _this._pointerY);
+            _this._pointerZ = _this._body.pointer.z;
+            _this._dragHelper.startDrag(_this._pointerX , _this._pointerY, _this._pointerZ);
         },
 
 
