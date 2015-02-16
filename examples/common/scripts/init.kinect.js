@@ -18,12 +18,28 @@
         var $cursor = $('.cursor');
         var $loader = $('.loader');
         body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.MOVE, functionMoveHandler, document.body);
+        body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.UP, functionUpHandler, document.body);
+        body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.DOWN, functionDownHandler, document.body);
+
+
+        function functionUpHandler(target) {
+
+            if ($cursor.hasClass("cursor--active")) {
+                $cursor.removeClass("cursor--active");
+            }
+        }
+        function functionDownHandler(target) {
+
+            if (!$cursor.hasClass("cursor--active")) {
+                $cursor.addClass("cursor--active");
+            }
+        }
+
 
         function functionMoveHandler(target) {
 
             posX+= (body.pointer.x - posX)*  0.8;
             posY+= (body.pointer.y - posY)* 0.8;
-
 
             var px = posX-10+"px";
             var py = posY-10+"px";
@@ -34,6 +50,7 @@
             });
 
             if($loader){
+
                 px = posX-25+"px";
                 py = posY-25+"px";
 
