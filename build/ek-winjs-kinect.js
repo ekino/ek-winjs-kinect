@@ -380,7 +380,27 @@
 
                 _this._fillRawBodyPoint(_this._selectedBody.head, headPosition);
                 _this._fillRawBodyPoint(_this._selectedBody.neck, jointPoints[_this._JointType.neck]);
+                _this._fillRawBodyPoint(_this._selectedBody.spineShoulder, jointPoints[_this._JointType.spineShoulder]);
+                _this._fillRawBodyPoint(_this._selectedBody.spineMid, jointPoints[_this._JointType.spineMid]);
                 _this._fillRawBodyPoint(_this._selectedBody.spineBase, jointPoints[_this._JointType.spineBase]);
+                _this._fillRawBodyPoint(_this._selectedBody.shoulderRight, jointPoints[_this._JointType.shoulderRight]);
+                _this._fillRawBodyPoint(_this._selectedBody.elbowRight, jointPoints[_this._JointType.elbowRight]);
+                _this._fillRawBodyPoint(_this._selectedBody.wristRight, jointPoints[_this._JointType.wristRight]);
+                _this._fillRawBodyPoint(_this._selectedBody.handTipRight, jointPoints[_this._JointType.handTipRight]);
+                _this._fillRawBodyPoint(_this._selectedBody.handTipLeft, jointPoints[_this._JointType.handTipLeft]);
+                _this._fillRawBodyPoint(_this._selectedBody.thumbRight, jointPoints[_this._JointType.thumbRight]);
+                _this._fillRawBodyPoint(_this._selectedBody.shoulderLeft, jointPoints[_this._JointType.shoulderLeft]);
+                _this._fillRawBodyPoint(_this._selectedBody.elbowLeft, jointPoints[_this._JointType.elbowLeft]);
+                _this._fillRawBodyPoint(_this._selectedBody.thumbLeft, jointPoints[_this._JointType.thumbLeft]);
+                _this._fillRawBodyPoint(_this._selectedBody.wristLeft, jointPoints[_this._JointType.wristLeft]);
+                _this._fillRawBodyPoint(_this._selectedBody.hipRight, jointPoints[_this._JointType.hipRight]);
+                _this._fillRawBodyPoint(_this._selectedBody.kneeRight, jointPoints[_this._JointType.kneeRight]);
+                _this._fillRawBodyPoint(_this._selectedBody.ankleRight, jointPoints[_this._JointType.ankleRight]);
+                _this._fillRawBodyPoint(_this._selectedBody.footRight, jointPoints[_this._JointType.footRight]);
+                _this._fillRawBodyPoint(_this._selectedBody.hipLeft, jointPoints[_this._JointType.hipLeft]);
+                _this._fillRawBodyPoint(_this._selectedBody.kneeLeft, jointPoints[_this._JointType.kneeLeft]);
+                _this._fillRawBodyPoint(_this._selectedBody.ankleLeft, jointPoints[_this._JointType.ankleLeft]);
+                _this._fillRawBodyPoint(_this._selectedBody.footLeft, jointPoints[_this._JointType.footLeft]);
 
                 _this._selectedBody.isTracked = true;
 
