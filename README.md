@@ -119,6 +119,7 @@ applications for Windows 8.
 ## Roadmap
 - Add possibility to listen to a jquery target
 - Add simple  gestures like swipe, zoom, smile, wink etc.
+- Manage touch events
 - Optimize right vs left hand interaction
 - Target multiple player on different area
 - Show the Kinect camera on screen

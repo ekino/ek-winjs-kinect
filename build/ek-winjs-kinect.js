@@ -1597,6 +1597,10 @@
         y: 0,
         z: 0,
 
+        rotateX: 0,
+        rotateY: 0,
+        rotateZ: 0,
+
 
         /********************
          Public methods
@@ -1614,6 +1618,10 @@
                 _this.x = _this._dragHelper.x;
                 _this.y = _this._dragHelper.y;
                 _this.z = _this._dragHelper.z;
+
+                _this.rotateX = (-_this._dragHelper.y%360);
+                _this.rotateY = (_this._dragHelper.x%360);
+                _this.rotateZ = (_this._dragHelper.z%360);
 
             }
 
