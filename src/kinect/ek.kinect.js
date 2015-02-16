@@ -127,7 +127,11 @@
             this._activation = Windows.ApplicationModel.Activation;
             this._app.start();
 
-            this._app.onactivated = function (args) {
+            this._app.onloaded = function () {
+                _this._startKinect();
+            }
+
+            /*this._app.onactivated = function (args) {
                 if (args.detail.kind === _this._activation.ActivationKind.launch) {
                     if (args.detail.previousExecutionState !== _this._activation.ApplicationExecutionState.terminated) {
 
@@ -141,7 +145,7 @@
 
                     args.setPromise(WinJS.UI.processAll());
                 }
-            };
+            };*/
 
 
             this._app.onunload = function (args) {

@@ -28,7 +28,7 @@
             z: 1,
             dephX: 0.2,
             dephZ: 0.1,
-            handPushZ: 0.25
+            handPushZ: 0.20
         },
 
         //hand
