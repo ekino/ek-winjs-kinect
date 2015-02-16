@@ -24,9 +24,24 @@
             posX+= (body.pointer.x - posX)*  0.8;
             posY+= (body.pointer.y - posY)* 0.8;
 
-            $cursor.css({left:  posX - 10, top:   posY - 10, opacity: 1 });
 
-            if($loader) $loader.css({left:  posX - 25, top:   posY - 25});
+            var px = posX-10+"px";
+            var py = posY-10+"px";
+
+            $cursor.css({
+                transform: "translateX("+px+") translateY("+py+")",
+                opacity: 1
+            });
+
+            if($loader){
+                px = posX-25+"px";
+                py = posY-25+"px";
+
+                $loader.css({
+                    transform: "translateX("+px+") translateY("+py+")"
+                });
+
+            }
         };
 
     });

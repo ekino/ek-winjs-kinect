@@ -4,6 +4,7 @@
   z-index: 5;
   position: absolute;
   cursor: none;
+  transform-style:preserve-3d;
 
   -webkit-transition: opacity 500ms ease;
   -moz-transition: opacity 500ms ease;
