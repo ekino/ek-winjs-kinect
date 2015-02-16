@@ -20,11 +20,14 @@
                 var posY = -dragController.y+"px";
                 var posZ = -dragController.z+"px";
 
+
                 $square.css({
                     transform: 'translate3d('+posX+','+posY+','+posZ+')'
                 });
 
             }
+
+
 
             dragController.update();
             window.requestAnimationFrame(update);

@@ -124,4 +124,3 @@ applications for Windows 8.
 - Show the Kinect camera on screen
 - Manage event bubbling on target listeners
 - Find a lighter implementation class than WinJs.
-- Remove jquery dependency for element.position()
