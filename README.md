@@ -70,7 +70,7 @@ you can program interaction on others platform because the EK-WinJS-Kinect libra
     
 - Check the simple pointer demo
 
-http://localhost:9000/simple-pointer/
+http://localhost:9000/examples/simple-pointer/
 
 ![Image](/docs/assets/simple-pointer-demo.png?raw=true)
 
