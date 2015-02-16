@@ -18,6 +18,7 @@
 
 .cursor {
   cursor: none;
+  pointer-events: none; 
   z-index: 10;
   position: absolute;
   background: #FFB718;
