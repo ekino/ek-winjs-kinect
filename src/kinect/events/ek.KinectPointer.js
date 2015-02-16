@@ -25,8 +25,8 @@
         x : 0,
         y: 0,
         z: 0,
-        appWidth : window.innerWidth,
-        appHeight : window.innerHeight,
+        appWidth : document.innerWidth,
+        appHeight : document.innerHeight,
 
         /********************
             Public methods 

@@ -52,6 +52,7 @@
         //left arm
         shoulderLeft: { x: 0, y: 0, z: 0 },
         elbowLeft: { x: 0, y: 0, z: 0 },
+        handTipLeft: { x: 0, y: 0, z: 0 },
         thumbLeft: { x: 0, y: 0, z: 0 },
         wristLeft: { x: 0, y: 0, z: 0 },
 
@@ -1054,8 +1055,8 @@
         x : 0,
         y: 0,
         z: 0,
-        appWidth : window.innerWidth,
-        appHeight : window.innerHeight,
+        appWidth : document.innerWidth,
+        appHeight : document.innerHeight,
 
         /********************
             Public methods 

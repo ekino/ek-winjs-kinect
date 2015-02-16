@@ -4,3 +4,5 @@ www/
 .cordova/
 node_modules/
 bower_components/
+platforms/
+platforms/windows/
