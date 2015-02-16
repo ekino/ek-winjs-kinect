@@ -5,8 +5,8 @@ module.exports = function (grunt) {
             files: [
                 {
                     expand: true,
-                    cwd: '<%= config.samples_dir %>',
-                    src: ['**/*.js','**/*.html','**/*.{png,jpg,jpeg,gif,webp,svg}'],
+                    cwd: '',
+                    src: ['<%= config.samples_dir %>/**/*.js','<%= config.samples_dir %>/**/*.html','<%= config.samples_dir %>/**/*.{png,jpg,jpeg,gif,webp,svg}'],
                     dest: '<%= config.www_dir %>/'
                 }
             ]
@@ -25,8 +25,8 @@ module.exports = function (grunt) {
             files: [
                 {
                     expand: true,
-                    cwd: '<%= config.samples_dir %>',
-                    src: [ '**/*.js' ],
+                    cwd: '',
+                    src: [ '<%= config.samples_dir %>/**/*.js' ],
                     dest: '<%= config.www_dir %>/'
                 }
             ]
@@ -35,8 +35,8 @@ module.exports = function (grunt) {
             files: [
                 {
                     expand: true,
-                    cwd: '<%= config.samples_dir %>',
-                    src: [ '**/*.html' ],
+                    cwd: '',
+                    src: [ '<%= config.samples_dir %>/**/*.html' ],
                     dest: '<%= config.www_dir %>'
                 }
             ]

@@ -9,8 +9,8 @@ module.exports = function (grunt) {
             },
             files: [{
                 expand: true,
-                cwd: '<%= config.samples_dir %>',
-                src: ['**/*.scss'],
+                cwd: '',
+                src: ['<%= config.samples_dir %>/**/*.scss'],
                 dest: '<%= config.www_dir %>',
                 ext: '.css'
             }]
