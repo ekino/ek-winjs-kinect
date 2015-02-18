@@ -1,48 +1,38 @@
-﻿(function () {
+﻿var EKjs;
+(function (EKjs) {
     'use strict';
-
 
     var _this = null;
     var _needSimulation = null;
 
-    /********************
-        CONSTRUCTOR 
-    *********************/
-    var constructor = function () {
-
-        _this = this;
-
-    }
+    var KinectBodyFrame = EKjs.Class.extend({
 
 
-    /********************
-        INSTANCE DEFINE 
-    *********************/
-    var instanceMembers = {
-        /********************
-            Public variables 
-        *********************/
+        constructor: function () {
+
+            _this = this;
+
+        },
 
 
         /********************
-            Public methods 
-        *********************/
+         Public methods
+         *********************/
         setDebugs: function (debug) {
             this._debugs = debug;
         },
 
         trackBodyOn: function (x, dephX, z, dephZ) {
 
-             _this._selectedBody = new EkWinjs.kinectBodyData();
-             _this._selectedBody.trackArea.x = x;
-             _this._selectedBody.trackArea.z = z;
-             _this._selectedBody.trackArea.dephX = dephX;
-             _this._selectedBody.trackArea.dephZ = dephZ;
+            _this._selectedBody = new EKjs.KinectBodyData();
+            _this._selectedBody.trackArea.x = x;
+            _this._selectedBody.trackArea.z = z;
+            _this._selectedBody.trackArea.dephX = dephX;
+            _this._selectedBody.trackArea.dephZ = dephZ;
 
-             if(_needSimulation)
-             {
+            if (_needSimulation) {
                 _this._selectedBody.startSimulate();
-             }
+            }
 
             return _this._selectedBody;
         },
@@ -54,7 +44,7 @@
 
         /**
 
-        */
+         */
         getPixelPoint: function (positionValue, allPixelsValue, multiplier) {
             if (!multiplier) multiplier = _this._autoMultiplier;
 
@@ -67,7 +57,7 @@
             this._frameWidth = width;
             this._frameHeight = height;
         },
-        
+
         start: function (bodyFrameSource, JointType, jointCount) {
 
             this._bodyFrameReader = bodyFrameSource.openReader();
@@ -90,7 +80,7 @@
             if (_this._selectedBody) {
                 _this._selectedBody.startSimulate();
             }
-            
+
         },
 
         stopSimulate: function () {
@@ -111,13 +101,13 @@
 
 
         /********************
-            Private variables 
-        *********************/
+         Private variables
+         *********************/
         _bodyFrameReader: null,
         _bodyImageProcessor: null,
 
         _bodies: null,
-        _bones : null,
+        _bones: null,
         _JointType: null,
         _jointCount: null,
         _frameWidth: 0,
@@ -128,8 +118,8 @@
 
 
         /********************
-            Private methods 
-        *********************/
+         Private methods
+         *********************/
 
 
         // Create array of bones
@@ -139,42 +129,41 @@
             var jointType = window.WindowsPreview.Kinect.JointType;
 
             // torso
-            bones.push({ jointStart: jointType.head, jointEnd: jointType.neck });
-            bones.push({ jointStart: jointType.neck, jointEnd: jointType.spineShoulder });
-            bones.push({ jointStart: jointType.spineShoulder, jointEnd: jointType.spineMid });
-            bones.push({ jointStart: jointType.spineMid, jointEnd: jointType.spineBase });
-            bones.push({ jointStart: jointType.spineShoulder, jointEnd: jointType.shoulderRight });
-            bones.push({ jointStart: jointType.spineShoulder, jointEnd: jointType.shoulderLeft });
-            bones.push({ jointStart: jointType.spineBase, jointEnd: jointType.hipRight });
-            bones.push({ jointStart: jointType.spineBase, jointEnd: jointType.hipLeft });
+            bones.push({jointStart: jointType.head, jointEnd: jointType.neck});
+            bones.push({jointStart: jointType.neck, jointEnd: jointType.spineShoulder});
+            bones.push({jointStart: jointType.spineShoulder, jointEnd: jointType.spineMid});
+            bones.push({jointStart: jointType.spineMid, jointEnd: jointType.spineBase});
+            bones.push({jointStart: jointType.spineShoulder, jointEnd: jointType.shoulderRight});
+            bones.push({jointStart: jointType.spineShoulder, jointEnd: jointType.shoulderLeft});
+            bones.push({jointStart: jointType.spineBase, jointEnd: jointType.hipRight});
+            bones.push({jointStart: jointType.spineBase, jointEnd: jointType.hipLeft});
 
             // right arm
-            bones.push({ jointStart: jointType.shoulderRight, jointEnd: jointType.elbowRight });
-            bones.push({ jointStart: jointType.elbowRight, jointEnd: jointType.wristRight });
-            bones.push({ jointStart: jointType.wristRight, jointEnd: jointType.handRight });
-            bones.push({ jointStart: jointType.handRight, jointEnd: jointType.handTipRight });
-            bones.push({ jointStart: jointType.wristRight, jointEnd: jointType.thumbRight });
+            bones.push({jointStart: jointType.shoulderRight, jointEnd: jointType.elbowRight});
+            bones.push({jointStart: jointType.elbowRight, jointEnd: jointType.wristRight});
+            bones.push({jointStart: jointType.wristRight, jointEnd: jointType.handRight});
+            bones.push({jointStart: jointType.handRight, jointEnd: jointType.handTipRight});
+            bones.push({jointStart: jointType.wristRight, jointEnd: jointType.thumbRight});
 
             // left arm
-            bones.push({ jointStart: jointType.shoulderLeft, jointEnd: jointType.elbowLeft });
-            bones.push({ jointStart: jointType.elbowLeft, jointEnd: jointType.wristLeft });
-            bones.push({ jointStart: jointType.wristLeft, jointEnd: jointType.handLeft });
-            bones.push({ jointStart: jointType.handLeft, jointEnd: jointType.handTipLeft });
-            bones.push({ jointStart: jointType.wristLeft, jointEnd: jointType.thumbLeft });
+            bones.push({jointStart: jointType.shoulderLeft, jointEnd: jointType.elbowLeft});
+            bones.push({jointStart: jointType.elbowLeft, jointEnd: jointType.wristLeft});
+            bones.push({jointStart: jointType.wristLeft, jointEnd: jointType.handLeft});
+            bones.push({jointStart: jointType.handLeft, jointEnd: jointType.handTipLeft});
+            bones.push({jointStart: jointType.wristLeft, jointEnd: jointType.thumbLeft});
 
             // right leg
-            bones.push({ jointStart: jointType.hipRight, jointEnd: jointType.kneeRight });
-            bones.push({ jointStart: jointType.kneeRight, jointEnd: jointType.ankleRight });
-            bones.push({ jointStart: jointType.ankleRight, jointEnd: jointType.footRight });
+            bones.push({jointStart: jointType.hipRight, jointEnd: jointType.kneeRight});
+            bones.push({jointStart: jointType.kneeRight, jointEnd: jointType.ankleRight});
+            bones.push({jointStart: jointType.ankleRight, jointEnd: jointType.footRight});
 
             // left leg
-            bones.push({ jointStart: jointType.hipLeft, jointEnd: jointType.kneeLeft });
-            bones.push({ jointStart: jointType.kneeLeft, jointEnd: jointType.ankleLeft });
-            bones.push({ jointStart: jointType.ankleLeft, jointEnd: jointType.footLeft });
+            bones.push({jointStart: jointType.hipLeft, jointEnd: jointType.kneeLeft});
+            bones.push({jointStart: jointType.kneeLeft, jointEnd: jointType.ankleLeft});
+            bones.push({jointStart: jointType.ankleLeft, jointEnd: jointType.footLeft});
 
             return bones;
         },
-
 
 
         _targetSelectedBody: function (jointPoints) {
@@ -206,7 +195,6 @@
 
             return isInTarget;
         },
-
 
 
         _populateBodyDatas: function (body, bodyIndex, jointPoints) {
@@ -242,7 +230,7 @@
 
                 //get hand position only on hand left up and push on front of head
                 if (handLeftPosition.y < jointPoints[_this._JointType.spineBase].position.y
-                 && (headPosition.z - handLeftPosition.z) > PUSH_Z_ACTIVE) {
+                    && (headPosition.z - handLeftPosition.z) > PUSH_Z_ACTIVE) {
 
                     _this._selectedBody.leftHandClosed = (body.handLeftState == WindowsPreview.Kinect.HandState.closed);
                     _this._selectedBody.leftHandOpen = (body.handLeftState == WindowsPreview.Kinect.HandState.open);
@@ -285,9 +273,6 @@
             }
 
 
-
-
-
         },
 
 
@@ -301,7 +286,7 @@
             var jointPoints = new Array();
 
             for (var i = 0; i < this._jointCount; ++i) {
-                jointPoints.push({ joint: 0, x: 0.5, y: 0.5, z: 0 });
+                jointPoints.push({joint: 0, x: 0.5, y: 0.5, z: 0});
             }
 
             return jointPoints;
@@ -309,8 +294,8 @@
 
 
         /********************
-            Events 
-        *********************/
+         Events
+         *********************/
         _reader_BodyFrameArrived: function (args) {
 
             // get body frame
@@ -323,7 +308,6 @@
                 dataReceived = true;
                 bodyFrame.close();
             }
-
 
 
             if (dataReceived) {
@@ -377,26 +361,12 @@
         }
 
 
-    };
-
-
-    /********************
-        STATICS 
-    *********************/
-    var staticMembers = {
-        ENUM: "enum",
-        funct: function () {
-        }
-    };
-
-
-    //class definition
-    var Class = WinJS.Class.define(constructor, instanceMembers, staticMembers);
-
-    WinJS.Namespace.define("EkWinjs", {
-        KinectBodyFrame: Class
     });
 
-})();
+    EKjs.KinectBodyFrame = KinectBodyFrame;
+
+
+})(EKjs || (EKjs = {}));
+
 
 

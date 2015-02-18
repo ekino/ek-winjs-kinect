@@ -2,7 +2,7 @@
     "use strict";
 
 
-    var kinect = EkWinjs.Kinect.getInstance();
+    var kinect = EKjs.Kinect.getInstance();
 
     kinect.addCanvasDebug("mainCanvas");
     kinect.addCanvasDebug("resultCanvas", true);

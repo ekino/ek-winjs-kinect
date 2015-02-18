@@ -2,7 +2,7 @@
     "use strict";
 
 
-    var kinect = EkWinjs.Kinect.getInstance();
+    var kinect = EKjs.Kinect.getInstance();
 
     //track body on specific 3D area .trackBodyOn(x,xDeph,z, zDeph);
     var body = kinect.bodyFrame.trackBodyOn(0.5, 0.2, 1.5, 0.2);
@@ -17,9 +17,9 @@
 
         var $cursor = $('.cursor');
         var $loader = $('.loader');
-        body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.MOVE, functionMoveHandler, document.body);
-        body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.UP, functionUpHandler, document.body);
-        body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.DOWN, functionDownHandler, document.body);
+        body.pointer.addEventListener(EKjs.Kinect.Events.Pointer.MOVE, functionMoveHandler, document.body);
+        body.pointer.addEventListener(EKjs.Kinect.Events.Pointer.UP, functionUpHandler, document.body);
+        body.pointer.addEventListener(EKjs.Kinect.Events.Pointer.DOWN, functionDownHandler, document.body);
 
 
         function functionUpHandler(target) {

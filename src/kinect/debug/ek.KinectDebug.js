@@ -1,10 +1,10 @@
-﻿(function () {
+﻿var EKjs;
+(function (EKjs) {
     'use strict';
 
-
     /********************
-        ENUM 
-    *********************/
+     ENUM
+     *********************/
 
     // handstate circle size
     var HANDSIZE = 20;
@@ -37,88 +37,83 @@
     var INFERREDJOINTCOLOR = "yellow";
 
 
-    /********************
-        CONSTRUCTOR 
-    *********************/    
-    var constructor = function (id) {
-           
-        this.id = id;
-        this._bodyCanvas = document.getElementById(id);           
-        this._bodyContext = this._bodyCanvas.getContext("2d");
-
-        this._bodyColors = [
-            "#FF4611",
-            "#3A5CAC",
-            "#8CB7E8",
-            "#FFB718",
-            "#DC0031",
-            "#00ADBB"
-        ];
-
-    }
+    var KinectDebug = EKjs.Class.extend({
 
 
-    /********************
-        INSTANCE DEFINE 
-    *********************/ 
-    var instanceMembers = {
+        constructor: function (id) {
+
+            this.id = id;
+            this._bodyCanvas = document.getElementById(id);
+            this._bodyContext = this._bodyCanvas.getContext("2d");
+
+            this._bodyColors = [
+                "#FF4611",
+                "#3A5CAC",
+                "#8CB7E8",
+                "#FFB718",
+                "#DC0031",
+                "#00ADBB"
+            ];
+
+        },
+
 
         /********************
-            Public variables 
-        *********************/
+         Public variables
+         *********************/
 
         id: null,
 
-        onlySelected:false,  
+        onlySelected: false,
 
-        disabledClear:false,   
-                
+        disabledClear: false,
+
         /********************
-            Public methods 
-        *********************/
+         Public methods
+         *********************/
 
-        setSize:function(width,height){
-             this._bodyCanvas.width = width;
-             this._bodyCanvas.height = height;  
+        setSize: function (width, height) {
+            this._bodyCanvas.width = width;
+            this._bodyCanvas.height = height;
         },
         clearCanvas: function () {
-                        // clear canvas before drawing each frame
+            // clear canvas before drawing each frame
             this._bodyContext.clearRect(0, 0, this._bodyCanvas.width, this._bodyCanvas.height);
         },
 
         drawBody: function (body, jointPoints, bodyIndex, clippedEdges, bones) {
 
-                // draw the body
+            // draw the body
             this._drawBodyJoints(body.joints, jointPoints, this._bodyColors[bodyIndex], bones);
 
-                // draw handstate circles
+            // draw handstate circles
             this._updateHandState(body.handLeftState, jointPoints[window.WindowsPreview.Kinect.JointType.handLeft]);
             this._updateHandState(body.handRightState, jointPoints[window.WindowsPreview.Kinect.JointType.handRight]);
 
-                // draw clipped edges if any
+            // draw clipped edges if any
             this._drawClippedEdges(clippedEdges);
 
         },
 
         /********************
-            Private variables 
-        *********************/
+         Private variables
+         *********************/
 
-        _bodyCanvas : null,
-        _bodyContext : null,     
+        _bodyCanvas: null,
+        _bodyContext: null,
 
         // defines a different color for each body
-        _bodyColors : null,
+        _bodyColors: null,
 
         // total number of joints = 25
-        _jointCount : null,
+        _jointCount: null,
 
 
         /********************
-            Private methods 
-        *********************/
-        
-        _drawBodyJoints : function (joints, jointPoints, bodyColor, bones) {
+         Private methods
+         *********************/
+
+        _drawBodyJoints: function (joints, jointPoints, bodyColor, bones) {
             // draw all this._bones
             var boneCount = bones.length;
             for (var boneIndex = 0; boneIndex < boneCount; ++boneIndex) {
@@ -164,7 +159,7 @@
             }
         },
 
-        _drawHand : function (jointPoint, handColor) {
+        _drawHand: function (jointPoint, handColor) {
             // draw semi transparent hand cicles
             this._bodyContext.globalAlpha = 0.75;
             this._bodyContext.beginPath();
@@ -176,7 +171,7 @@
         },
 
         // Draw a joint circle on canvas
-        _drawJoint : function (joint, jointColor) {
+        _drawJoint: function (joint, jointColor) {
             this._bodyContext.beginPath();
             this._bodyContext.fillStyle = jointColor;
             this._bodyContext.arc(joint.position.x, joint.position.y, JOINTTHICKNESS, 0, Math.PI * 2, true);
@@ -185,7 +180,7 @@
         },
 
         // Draw a bone line on canvas
-        _drawBone : function (startPoint, endPoint, boneThickness, boneColor) {
+        _drawBone: function (startPoint, endPoint, boneThickness, boneColor) {
             this._bodyContext.beginPath();
             this._bodyContext.strokeStyle = boneColor;
             this._bodyContext.lineWidth = boneThickness;
@@ -196,7 +191,7 @@
         },
 
         // Determine hand state
-        _updateHandState : function (handState, jointPoint) {
+        _updateHandState: function (handState, jointPoint) {
             switch (handState) {
                 case window.WindowsPreview.Kinect.HandState.closed:
                     this._drawHand(jointPoint, HANDCLOSEDCOLOR);
@@ -213,7 +208,7 @@
         },
 
         // Draws clipped edges
-        _drawClippedEdges : function (clippedEdges) {
+        _drawClippedEdges: function (clippedEdges) {
 
             this._bodyContext.fillStyle = "red";
 
@@ -235,30 +230,15 @@
         },
 
         // Checks if an edge is clipped
-        _hasClippedEdges : function (edges, clippedEdge) {
+        _hasClippedEdges: function (edges, clippedEdge) {
             return ((edges & clippedEdge) != 0);
         }
 
 
-    };
-
-    /********************
-        STATICS 
-    *********************/
-    var staticMembers = {
-        ENUM: "enum",
-        funct: function () {
-        }
-    };
-
-
-    //class definition
-    var Class = WinJS.Class.define(constructor, instanceMembers, staticMembers);
-
-    WinJS.Namespace.define("EkWinjs", {
-        KinectDebug: Class
     });
 
-})();
+
+    EKjs.KinectDebug = KinectDebug;
 
 
+})(EKjs || (EKjs = {}));

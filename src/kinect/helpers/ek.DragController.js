@@ -1,35 +1,31 @@
-﻿(function () {
+﻿var EKjs;
+(function (EKjs) {
     'use strict';
 
-    var _this;
+    var _this = null;
 
-    /********************
-     CONSTRUCTOR
-     *********************/
-    var constructor = function (body, target, velocity, sensibilityRatio) {
-
-        velocity = (velocity) ? velocity : 0.2;
-        sensibilityRatio = (sensibilityRatio) ? sensibilityRatio : 0.5;
-
-        this._body = body;
-        _this = this;
-
-        this._dragHelper = new EkWinjs.DragHelper(velocity, sensibilityRatio);
-
-        if (this._body && this._body.pointer) {
-
-            this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.MOVE, this._getMousePosition, document.body);
-            this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.UP, this._onUpHandler, document.body);
-            this._body.pointer.addEventListener(EkWinjs.Kinect.Events.Pointer.DOWN, this._onDownHandler, target);
-        }
+    var DragController = EKjs.Class.extend({
 
 
-    }
+        constructor : function (body, target, velocity, sensibilityRatio) {
 
-    /********************
-     INSTANCE DEFINE
-     *********************/
-    var instanceMembers = {
+            velocity = (velocity) ? velocity : 0.2;
+            sensibilityRatio = (sensibilityRatio) ? sensibilityRatio : 0.5;
+
+            this._body = body;
+            _this = this;
+
+            this._dragHelper = new EKjs.DragHelper(velocity, sensibilityRatio);
+
+            if (this._body && this._body.pointer) {
+
+                this._body.pointer.addEventListener(EKjs.Kinect.Events.Pointer.MOVE, this._getMousePosition, document.body);
+                this._body.pointer.addEventListener(EKjs.Kinect.Events.Pointer.UP, this._onUpHandler, document.body);
+                this._body.pointer.addEventListener(EKjs.Kinect.Events.Pointer.DOWN, this._onDownHandler, target);
+            }
+
+
+        },
 
         /********************
          Public variables
@@ -170,21 +166,13 @@
         _onUpHandler: function () {
             _this._dragHelper.stopDrag();
         }
-    };
-
-    /********************
-     STATICS
-     *********************/
-    var staticMembers = {};
-
-
-    //class definition
-    var Class = WinJS.Class.define(constructor, instanceMembers, staticMembers);
-
-    WinJS.Namespace.define("EkWinjs", {
-        DragController: Class
     });
 
-})();
+
+    EKjs.DragController = DragController;
+
+
+})(EKjs || (EKjs = {}));
+
 
 

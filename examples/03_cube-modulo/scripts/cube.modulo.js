@@ -2,7 +2,7 @@
     "use strict";
 
 
-    var kinect = EkWinjs.Kinect.getInstance();
+    var kinect = EKjs.Kinect.getInstance();
     var body = kinect.bodyFrame.getSelectedBody();
 
 
@@ -10,7 +10,7 @@
 
         var $cube = $('#cube');
 
-        var dragController = new EkWinjs.DragController(body,document.body,0.1,1);
+        var dragController = new EKjs.DragController(body,document.body,0.1,1);
 
         function update(){
 

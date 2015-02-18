@@ -113,7 +113,7 @@ applications for Windows 8.
 - Automatically switch between right or left hand interaction
 - Windows 8 store ready to package with cordova
 - Draw the body joints to canvas for debugging
-- Manage drag and drop easily with new EkWinjs.DragController(body,document.body,0.1,0.5);
+- Manage drag and drop easily with new EKjs.DragController(body,document.body,0.1,0.5);
 
 
 ## Roadmap
@@ -124,4 +124,3 @@ applications for Windows 8.
 - Target multiple player on different area
 - Show the Kinect camera on screen
 - Manage event bubbling on target listeners
-- Find a lighter implementation class than WinJs.

@@ -1,74 +1,71 @@
-﻿(function () {
+﻿var EKjs;
+(function (EKjs) {
     'use strict';
 
     var _this = null;
 
-    /********************
-        CONSTRUCTOR 
-    *********************/ 
-    var constructor = function (velocity, sensibilityRatio) {
+    var DragController = EKjs.Class.extend({
 
-        _this = this;
 
-        _this.velocity = (velocity) ? velocity : 0.2;
-        _this.sensibilityRatio = (sensibilityRatio) ? sensibilityRatio : 0.5;
-	}
-	
-    /********************
-        INSTANCE DEFINE 
-    *********************/ 
-    var instanceMembers = {
+        constructor: function (velocity, sensibilityRatio) {
+
+            _this = this;
+
+            _this.velocity = (velocity) ? velocity : 0.2;
+            _this.sensibilityRatio = (sensibilityRatio) ? sensibilityRatio : 0.5;
+        },
+
 
         /********************
-            Public variables 
-        *********************/
+         Public variables
+         *********************/
 
-       velocity: 0,
-       sensibilityRatio: 0,
+        velocity: 0,
+        sensibilityRatio: 0,
 
-       isDrag : false,
-       needUpdate : false,
-       x : 0,
-       y : 0,
-       z : 0,
-       minX : NaN,
-       minY : NaN,
-       minZ : NaN,
+        isDrag: false,
+        needUpdate: false,
+        x: 0,
+        y: 0,
+        z: 0,
+        minX: NaN,
+        minY: NaN,
+        minZ: NaN,
 
-       maxY : NaN,
-       maxX : NaN,
-       maxZ : NaN,
+        maxY: NaN,
+        maxX: NaN,
+        maxZ: NaN,
 
-       _dragX : 0,
-       _dragY : 0,
-       _dragZ : 0,
-    
-       _startX : 0,
-       _endX : 0,
-    
-       _startY : 0,
-       _endY : 0,
+        _dragX: 0,
+        _dragY: 0,
+        _dragZ: 0,
 
-       _startZ : 0,
-       _endZ : 0,
-    
-       _endVelocityCallback : null,
-       _saveVelocityValue : 0,
-    
+        _startX: 0,
+        _endX: 0,
+
+        _startY: 0,
+        _endY: 0,
+
+        _startZ: 0,
+        _endZ: 0,
+
+        _endVelocityCallback: null,
+        _saveVelocityValue: 0,
+
         /********************
-            Public methods 
-        *********************/
+         Public methods
+         *********************/
         /**
          *
          * @param  pointerX
          * @param  pointerY
          */
-        startDrag : function ( pointerX,  pointerY, pointerZ) {
+        startDrag: function (pointerX, pointerY, pointerZ) {
             _this.isDrag = true;
             _this.needUpdate = true;
-            _this._startX =  pointerX * _this.sensibilityRatio + _this._endX;
-            _this._startY =  pointerY * _this.sensibilityRatio + _this._endY;
-            _this._startZ =  pointerZ * _this.sensibilityRatio + _this._endZ;
+            _this._startX = pointerX * _this.sensibilityRatio + _this._endX;
+            _this._startY = pointerY * _this.sensibilityRatio + _this._endY;
+            _this._startZ = pointerZ * _this.sensibilityRatio + _this._endZ;
 
         },
 
@@ -76,7 +73,7 @@
          *
          * @param endVelocityCallback
          */
-        stopDrag : function (endVelocityCallback) {
+        stopDrag: function (endVelocityCallback) {
             if (_this.isDrag) {
                 _this.isDrag = false;
                 _this._endX = _this._dragX;
@@ -92,12 +89,12 @@
          * @param  pointerX
          * @param  pointerY
          */
-        updateDrag : function ( pointerX,  pointerY, pointerZ) {
+        updateDrag: function (pointerX, pointerY, pointerZ) {
 
             if (_this.isDrag) {
-                _this._dragX = (_this._startX -  pointerX * _this.sensibilityRatio);
-                _this._dragY = (_this._startY -  pointerY * _this.sensibilityRatio);
-                _this._dragZ = (_this._startZ -  pointerZ * _this.sensibilityRatio);
+                _this._dragX = (_this._startX - pointerX * _this.sensibilityRatio);
+                _this._dragY = (_this._startY - pointerY * _this.sensibilityRatio);
+                _this._dragZ = (_this._startZ - pointerZ * _this.sensibilityRatio);
 
 
                 // test minimum and maximum values Y
@@ -144,36 +141,22 @@
         },
 
         /********************
-            Private variables 
-        *********************/
+         Private variables
+         *********************/
         _name: "",
 
         /********************
-            Private methods 
-        *********************/
+         Private methods
+         *********************/
         _render: function () {
         }
 
 
-
-
-    };
-
-    /********************
-        STATICS 
-    *********************/
-    var staticMembers = {
-
-    };
-
-
-    //class definition
-    var Class = WinJS.Class.define(constructor, instanceMembers, staticMembers);
-    _this = Class;
-    WinJS.Namespace.define("EkWinjs", {
-        DragHelper: Class
     });
 
-})();
 
+    EKjs.DragController = DragController;
+
+
+})(EKjs || (EKjs = {}));
 
