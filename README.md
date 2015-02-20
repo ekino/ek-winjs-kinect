@@ -124,3 +124,4 @@ applications for Windows 8.
 - Target multiple player on different area
 - Show the Kinect camera on screen
 - Manage event bubbling on target listeners
+- Test WindowsToGo vs Bootcamp on mac
