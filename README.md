@@ -105,10 +105,6 @@ applications for Windows 8.
 
 ## Features
 - Target one player on a specific area
-
-        //(x, xDeph, z, zDeph);
-        var body = kinect.bodyFrame.trackBodyOn(0.5, 0.2, 1.5, 0.2);
-
 - Fallback the API with Mouse Event on a browser
 - Automatically switch between right or left hand interaction
 - Windows 8 store ready to package with cordova
