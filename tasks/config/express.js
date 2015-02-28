@@ -10,7 +10,7 @@ module.exports = function (grunt) {
         options: {
             port: port,
             hostname: '*',
-            server: path.resolve("./tasks/server/server.js")
+            server: path.resolve("./tasks/module/server.js")
         },
         livereload: {
             options: {
