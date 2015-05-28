@@ -17,6 +17,8 @@
   #cube {
     position: absolute;
     transform-style:preserve-3d;
+    -ms-transform-style: none;
+    -ms-transform: none;
     width: 100%;
     height: 100%;
 

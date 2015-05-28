@@ -37,7 +37,7 @@ Skip this step if you already have nodejs, grunt, bower and sass installed.
     
 - grunt :  http://gruntjs.com/installing-grunt
 
-        npm install grunt -g
+        npm install grunt-cli -g
 
 - bower : http://bower.io
 

@@ -47,33 +47,12 @@
 
 
         function functionHoldStart(target) {
-
-            ekolor = ekolors[Math.floor(Math.random() * ekolors.length)];
-
-            var $target = $(target);
-            $target.css({background:"#000000"});
-            $target.children('.element__zoom').css({background:ekolor});
+	        $loader.css('opacity', '1');
         };
 
         function functionHoldProgress(target,progress) {
-
-            var $target = $(target)
-            $loader.css('opacity', '1');
-
-            $target.children('.element__zoom').css({
-                transform:"scale("+progress+")",
-                opacity:progress
-            });
-
-
             $loader__input.val((progress * 100)).trigger('change');
 
-            if ((progress)<1) {
-
-                setTimeout(function(){
-                    $loader.css('opacity', '0');
-                }, 750);
-            }
         };
 
         function functionHoldEnd(target,progress) {
@@ -82,15 +61,10 @@
 
             $loader.css('opacity', '0');
 
-            if(progress==1){
-
-                $target.css({opacity: 1,background:ekolor});
-                $target.removeClass("square");
-                $target.addClass("circle");
-            }else{
-               // $loader.css('opacity', '0');
-            }
-
+	        if($target.context && $target.context.href!=undefined)
+	        {
+		        document.location=$target.context.href;
+	        }
 
         };
 
@@ -99,7 +73,9 @@
             var $target = $(target);
 
             toggleBorderRadius($target,"circle","square");
-
+	        $target.children('.element__zoom').css({
+		        display:"block"
+	        });
         };
 
         function functionOut(target) {
@@ -107,6 +83,10 @@
             var $target = $(target);
             $loader.css('opacity', '0');
 
+
+	        $target.children('.element__zoom').css({
+		        display:"none"
+	        });
             toggleBorderRadius($target,"square","circle");
 
         };

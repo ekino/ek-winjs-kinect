@@ -13,6 +13,7 @@
     <script src="../../bower_components/jquery-knob/js/jquery.knob.js"></script>
     <script src="../../bower_components/winstore-jscompat/winstore-jscompat.js"></script>
     <script src="../../bower_components/requestAnimationFrame/app/requestAnimationFrame.js"></script>
+    <script src="../../bower_components/threejs/build/three.js"></script>
     <!-- endbower -->
 
     <title>Hello Kinect v2</title>
@@ -21,7 +22,10 @@
 
 <div class="app">
     <div class="cursor"></div>
-
+    <div class="closeButton"></div>
+  <span class="loader">
+        <input type="text" class="loader__input" readOnly="true">
+      </span>
 
     <div id="board">
         <div id="square" class="element square"></div>
@@ -30,7 +34,7 @@
 
 <script type="text/javascript" src="../../build/ek-winjs-kinect.js"></script>
 
-<script type="text/javascript" src="../common/scripts/init.kinect.js"></script>
+<script type="text/javascript" src="../_common/scripts/init.kinect.js"></script>
 <script type="text/javascript" src="scripts/drag.velocity.js"></script>
 </body>
 </html>

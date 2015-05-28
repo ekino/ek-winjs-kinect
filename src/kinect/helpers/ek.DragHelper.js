@@ -4,7 +4,7 @@
 
     var _this = null;
 
-    var DragController = EKjs.Class.extend({
+    var DragHelper = EKjs.Class.extend({
 
 
         constructor: function (velocity, sensibilityRatio) {
@@ -155,7 +155,7 @@
     });
 
 
-    EKjs.DragController = DragController;
+    EKjs.DragHelper = DragHelper;
 
 
 })(EKjs || (EKjs = {}));

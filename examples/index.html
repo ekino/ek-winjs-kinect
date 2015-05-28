@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>EKJS Examples</title>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"/>
+    <link rel="stylesheet" type="text/css" href="_index/styles/index.css"/>
 
-    <link rel="stylesheet" type="text/css" href="common/styles/index.css"/>
-
-    
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/winjs/js/WinJS.js"></script>
     <script src="../bower_components/jquery-knob/js/jquery.knob.js"></script>
     <script src="../bower_components/winstore-jscompat/winstore-jscompat.js"></script>
     <script src="../bower_components/requestAnimationFrame/app/requestAnimationFrame.js"></script>
+    <script src="../bower_components/threejs/build/three.js"></script>
     <!-- endbower -->
 
-
+    <title>Hello Kinect v2</title>
 </head>
 <body>
-	<div class="cursor"></div>
+<div class="app">
+    <div class="cursor"></div>
 
-    <ul>
-        <li><a href="00_getting-started/index.html">00 - Getting Started</a></li>
-        <li><a href="01_simple-pointer/index.html">01 - Simple pointer</a></li>
-        <li><a href="02_drag-velocity/index.html">02 - Drag velocity</a></li>
-        <li><a href="03_cube-modulo/index.html">03 - Cube modulo</a></li>
-    </ul>
+      <span class="loader">
+        <input type="text" class="loader__input" readOnly="true">
+      </span>
 
 
-    <script type="text/javascript" src="../build/ek-winjs-kinect.js"></script>
+    <div id="board">
+        <div class="wrapper">
+            <a href="00_getting-started/index.html" class="element e1 square">
+                <div class='element__zoom'>
+                    <img src="_index/images/getting-started-white.png" width="100%">
+                </div>
+            </a>
+            <a href="02_drag-velocity/index.html" class="element e2 square">
+                <div class='element__zoom'>
+                    <img src="_index/images/drag-velocity.png" width="100%">
+                </div>
+            </a>
+            <a href="03_cube-modulo/index.html" class="element e3 square">
+                <div class='element__zoom'></div>
+            </a>
+            <a href="04_icosahedron/index.html" class="element e4 square">
+                <div class='element__zoom'></div>
+            </a>
+            <a href="04_icosahedron/index.html"  class="element e5 square">
+                <div class='element__zoom'>
+                    <img src="_index/images/car-selector.png" width="100%">
+                </div>
+            </a>
+            <div class="element e6 square"></div>
+            <div class="element e7 square"></div>
+            <div class="element e8 square"></div>
+            <div class="element e9 square"></div>
 
-    <script type="text/javascript" src="common/scripts/init.kinect.js"></script>
+        </div>
+    </div>
 
+</div>
+
+
+
+<script type="text/javascript" src="../build/ek-winjs-kinect.js"></script>
+
+<script type="text/javascript" src="_common/scripts/init.kinect.js"></script>
+<script type="text/javascript" src="_index/scripts/index.js"></script>
 </body>
 </html>

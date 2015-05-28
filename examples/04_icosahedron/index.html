@@ -5,7 +5,7 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="viewport"
           content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"/>
-    <link rel="stylesheet" type="text/css" href="styles/cube_modulo.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/icosahedron.css"/>
 
     <!-- bower:js -->
     <script src="../../bower_components/jquery/dist/jquery.js"></script>
@@ -23,27 +23,16 @@
 <div class="app">
     <div class="cursor"></div>
     <div class="closeButton"></div>
-  <span class="loader">
+      <span class="loader">
         <input type="text" class="loader__input" readOnly="true">
       </span>
 
-    <div id="board">
-        <section class="cube-container">
-            <figure id="cube">
-                <figure class="front"></figure>
-                <figure class="back"></figure>
-                <figure class="right"></figure>
-                <figure class="left"></figure>
-                <figure class="top"></figure>
-                <figure class="bottom"></figure>
-            </figure>
-        </section>
-    </div>
+    <div id="container"></div>
 </div>
 
-<script type="text/javascript" src="../../build/ek-winjs-kinect.js"></script>
+<script type="text/javascript" src="../../build/ek-winjs-kinect.min.js"></script>
 
 <script type="text/javascript" src="../_common/scripts/init.kinect.js"></script>
-<script type="text/javascript" src="scripts/cube.modulo.js"></script>
+<script type="text/javascript" src="scripts/icosahedron.js"></script>
 </body>
 </html>

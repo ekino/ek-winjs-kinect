@@ -17,9 +17,21 @@
 
         var $cursor = $('.cursor');
         var $loader = $('.loader');
+	    var $loader__input = $(".loader__input");
+	    $loader__input.knob({
+		    'min':0,
+		    'max':100,
+		    'width':50,
+		    'thickness':0.2,
+		    'fgColor':"#FFB718",
+		    'displayInput':false
+	    });
+
         body.pointer.addEventListener(EKjs.Kinect.Events.Pointer.MOVE, functionMoveHandler, document.body);
         body.pointer.addEventListener(EKjs.Kinect.Events.Pointer.UP, functionUpHandler, document.body);
         body.pointer.addEventListener(EKjs.Kinect.Events.Pointer.DOWN, functionDownHandler, document.body);
+
+
 
 
         function functionUpHandler(target) {
@@ -60,6 +72,35 @@
 
             }
         };
+
+
+	    var $closeBtn = $('.closeButton');
+	    console.log($closeBtn)
+		if($closeBtn[0])
+		{
+			body.pointer.addEventListener(EKjs.Kinect.Events.Pointer.HOLD_END, functionHoldEnd,$closeBtn[0],{handClosed:true});
+			body.pointer.addEventListener(EKjs.Kinect.Events.Pointer.HOLD_START, functionHoldStart,$closeBtn[0],{handClosed:true});
+			body.pointer.addEventListener(EKjs.Kinect.Events.Pointer.HOLD_PROGRESS, functionHoldProgress,$closeBtn[0],{handClosed:true});
+		}
+	    function functionHoldStart(target) {
+		    $loader.css('opacity', '1');
+	    };
+
+	    function functionHoldProgress(target,progress) {
+		    $loader__input.val((progress * 100)).trigger('change');
+
+	    };
+
+	    function functionHoldEnd(target,progress) {
+
+		    var $target = $(target);
+
+		    $loader.css('opacity', '0');
+
+		    document.location = "/examples";
+
+	    };
+
 
     });
 
